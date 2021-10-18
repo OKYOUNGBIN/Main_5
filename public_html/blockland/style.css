@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    /* 페이지의 바깥여백영역 */
+    margin: 0;
+    /* 페이지의 안쪽여백영역 */
+    padding: 0;
+     /* 요소의 너비와 높이를 계산하는 방법 지정
+    border-box는 안쪽 박의 사이즈가 바깥쪽 박스를 못 넘게
+    width와 height 속성이 안쪽 여백과 테두리는 포함하고, 바깥 여백은 미포함*/
+    box-sizing: border-box;
+        /* 글꼴 여러개 설정 Poppins가 없다면 (,)
+    뒤에  sans-serif글꼴 설정 */
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    /* body의 높이가 최소100vh만큼 표시 */
+    min-height: 100vh;
+    /* background: #150019; */
+}
+#video{
+    position: absolute;
+}
+/* navigation 클래스 기본설정 */
+.navigation{
+    /* position의 relative는 위치값을 내가 넣고 싶은 곳으로
+    조정 하기 위함
+    fixed 는 위치 고정 */
+    position: fixed;
+    width: 60px;
+    /* 높이 100vh 는 vieport기준의 height비율
+    즉 100vh는 100%를 의미 */
+    height: 100vh;
+    /* background: linear-gradient( #e9e1d4, #f5ddad, #ffd0a6, #f1bcae); */
+    background: gray;
+    /* background: #f1bcae; */
+    /* 마우스가 navigation클래스에서 떨어지면 가로로 0.5초 */
+    transition: width 0.5s;
+    /* 넘친 컨텐츠는 잘려지고 안보임 */
+    overflow: hidden;
+}
+.navigation .bit{
+    top: 5px;
+    left: 10px;
+    position: relative;
+    /* text-decoration: none; */
+    color: #fff;
+    font-size: 30px;
+    /* li에 점 없애기 */
+    list-style: none;
+    white-space: nowrap;
+    text-decoration: none;
+}
+.navigation .bit a{
+    position: relative;
+    text-decoration: none;
+    color: #363636;
+}
+.navigation .connect-users{
+    position: absolute;
+    background: rgb(250, 240, 230);
+    color: #363636;
+    overflow: auto;
+    z-index: 5;
+    left: 10px;
+    top: 60px;
+    width: 280px;
+    height: 400px;
+    border-radius: 8px;
+}
+.navigation .connect-users::-webkit-scrollbar{
+    width: 12px;
+    height: 12px;
+    border-radius: 8px;
+}
+.navigation .connect-users::-webkit-scrollbar-thumb{
+    background-color: #fce9da;
+    border-radius: 8px;
+}
+.navigation .connect-users::-webkit-scrollbar{
+    background-color:#fff;
+}
+/* 마우스가 navigation클래스에 올라갈 때 설정
+link -> visited -> hover -> active 순서로 해야 에러X */
+.navigation:hover,
+.navigation.active{
+    /* 마우스가 navigation클래스에 올라와 있을 때 
+    가로 너비가 300px*/
+    width: 300px;
+}
+/* navigation 클래스의 ul태그 설정 */
+.navigation ul{
+    /* ul 포지션이 위 부모 값에 영향을
+    받지 않고 독립적으로 설정할 때 absolute 사용 */
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    /* 왼쪽을 기준으로 5px만큼 간격주기 */
+    /* padding-left: 5px; */
+    /* 위쪽을 기준으로 40px만큼 간격주기 */
+    padding-top: 40px;
+}
+/* 다시 수정---------------------------------------------------------------------------- */
+.navigation ul li .btn{
+    z-index: 20;
+    text-decoration: none;
+    /* 백그라운드 색상 없애기 */
+    background-color: transparent !important;
+    /* 테두리 투명 */
+    border: none;
+}
+
+/* navigation 클래스의 ul태그의 li태그설정 */
+.navigation ul li{
+    position: relative;
+    top: 380px;
+    width: 60px;
+    /* li맨앞에 표시될 형식 없음으로 */
+    list-style: none;
+    /* 왼쪽 상단의 모서리 설정 */
+    /* border-top-left-radius: 20px; */
+    /* 왼쪽 하단의 모서리 설정 */
+    /* border-bottom-left-radius: 20px; */
+    /* 전체 모서리 설정 */
+    border-radius: 20px;
+}
+/* navigation 클래스의 ul태그의 li태그의
+hover설정(마우스가 위에 올라갔을 때) */
+.navigation ul li:hover{
+    background: #ff8080;
+}
+
+/* navigation 클래스의 ul태그의 li태그의 a태그설정 */
+.navigation ul li .btn{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    /* 글자의 모든 효과 없애기 ex)밑줄 없애기 */
+    text-decoration: none;
+    color: #fff;
+}
+.navigation ul li .btn .icon{
+    position: relative;
+    display: block;
+    /* 최소 가로 크기 */
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+.navigation ul li .btn .icon .fas{
+    font-size: 18px;
+}
+.navigation ul li .btn .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height:  60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.toggle{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(#e9e1d4, #f5ddad, #f1bcae);
+    
+    cursor: pointer;
+}
+.toggle.active{
+    background: #ff8080;
+}
+.toggle:before{
+    /* css 유니코드
+    before, after을 쓸 때 content는 필수요소 */
+    content: "\f0c9";
+    font-family: fontAwesome;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+}
+.toggle.active:before{
+    content: '\f00d';
+}
+/* -------------사이드 바 안에 채팅창------------- */
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+.create-nick{
+    position: absolute;
+    background-color:#777;
+}
+.create-nick h1{
+    position: absolute;
+    left: 45%;
+    top: 40%;
+}
+.user-nick{
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    height: 40px;
+    width: 19%;
+}
+.save-nick{
+    position: absolute;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    left: 60%;
+    top: 50%;
+    width: 80px;
+    font-size: 24px;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+}
+.save-nick:hover{
+    background-color: #555555;
+    color: white;
+}
+
+/* Chat in Sidebar */
+.chat_main{
+    position: fixed;
+    display: inline-block;
+    right: 0;
+    background-color: rgb(250, 240, 230);
+    border-radius: 8px;
+    top: 100px;
+    width: 300px;
+    height: 300px;
+}
+
+.chat_main #nav_title{
+    position: relative;   
+    left: 45%;
+    color: salmon;
+}
+.chat_log{
+    position: relative;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    width: 97%;
+    height: 235px;
+    border-radius: 8px;
+    /* 크기 조절 불가 */
+    resize: none;
+}
+#chat{
+    border-radius: 8px;
+    position: relative;
+    top: 5px;
+}
+.name{
+    border-radius: 8px;
+    /* 테두리 스타일 : 직선 */
+    border-style: solid;
+    position: absolute;
+    left: 5px;
+    width: 20%;
+ }
+.message_send{
+    border-radius: 8px;
+    position: absolute;
+    border-style: solid;
+    left: 70px;
+    width: 63%;
+}
+.chat{
+    position: absolute;
+    border-style: solid;
+    width: 11%;
+    right: 5px;
+    border-radius: 8px;
+}
+
+#mymain_local{
+    position: absolute;
+    left: 20px;
+    top: 50px;
+}
+
+#wingleft {}
+
+#wingright {}
+
+#localVideo {
+    position: absolute;
+}
+#mymain_remote{
+    z-index: 10;
+    position: absolute;
+    right: 10px;
+}
+#remoteVideo {
+    right: 80px;
+    position: absolute;
+}
