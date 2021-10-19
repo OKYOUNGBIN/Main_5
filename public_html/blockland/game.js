@@ -335,7 +335,7 @@ class Game {
 		const videoTexture1 = new THREE.VideoTexture(this.video1);
 		const videoMaterial1 = new THREE.MeshBasicMaterial({
 			map: videoTexture1,
-			side: THREE.FrontSide, // DoubleSide 양쪽 면이 다 보이게
+			side: THREE.BackSide, // DoubleSide 양쪽 면이 다 보이게
 			overdraw: true
 		});
 		videoTexture1.minFilter = THREE.LinearFilter; // 원래는 1920x960 이런식으로 영상의 사이즈에 맞게 설정해야하는데 
@@ -344,7 +344,8 @@ class Game {
 		const videoGeometry1 = new THREE.PlaneGeometry(500, 500, 2000);  // 동영상 재생 화면 생성 및 크기조정
 		const videoScreen1 = new THREE.Mesh(videoGeometry1, videoMaterial1);  // 동영상 화면 및 videoMaterial
 		videoScreen1.name = "video1"
-		videoScreen1.position.set(9000, 450, 3700); //이게 맞는 위치
+		videoScreen1.position.set(7300, 450, -5500); //이게 맞는 위치
+		videoScreen1.rotation.y = Math.PI / 2;
 		this.scene.add(videoScreen1);
 
 		// 4runner 영상
@@ -363,7 +364,8 @@ class Game {
 		const videoGeometry2 = new THREE.PlaneGeometry(500, 500, 2000);  // 동영상 재생 화면 생성 및 크기조정
 		const videoScreen2 = new THREE.Mesh(videoGeometry2, videoMaterial2);  // 동영상 화면 및 videoMaterial
 		videoScreen2.name = "video2"
-		videoScreen2.position.set(-700, 300, -6190); //이게 맞는 위치
+		videoScreen2.position.set(-8500, 450, -50); //이게 맞는 위치
+		videoScreen2.rotation.y = Math.PI / 4.5;
 		this.scene.add(videoScreen2);
 
 		// 힐링캠프 영상
@@ -382,7 +384,8 @@ class Game {
 		const videoGeometry3 = new THREE.PlaneGeometry(500, 500, 2000);  // 동영상 재생 화면 생성 및 크기조정
 		const videoScreen3 = new THREE.Mesh(videoGeometry3, videoMaterial3);  // 동영상 화면 및 videoMaterial
 		videoScreen3.name = "video3"
-		videoScreen3.position.set(-700, 300, 0); //이게 맞는 위치
+		videoScreen3.position.set(-6400, 450, 3000); //이게 맞는 위치
+		videoScreen3.rotation.y = Math.PI / 2;
 		this.scene.add(videoScreen3);
 
 		// KMH 영상
@@ -392,7 +395,7 @@ class Game {
 		const videoTexture4 = new THREE.VideoTexture(this.video4);
 		const videoMaterial4 = new THREE.MeshBasicMaterial({
 			map: videoTexture4,
-			side: THREE.FrontSide, // DoubleSide 양쪽 면이 다 보이게
+			side: THREE.BackSide, // DoubleSide 양쪽 면이 다 보이게
 			overdraw: true
 		});
 		videoTexture4.minFilter = THREE.LinearFilter; // 원래는 1920x960 이런식으로 영상의 사이즈에 맞게 설정해야하는데 
@@ -401,7 +404,7 @@ class Game {
 		const videoGeometry4 = new THREE.PlaneGeometry(500, 500, 2000);  // 동영상 재생 화면 생성 및 크기조정
 		const videoScreen4 = new THREE.Mesh(videoGeometry4, videoMaterial4);  // 동영상 화면 및 videoMaterial
 		videoScreen4.name = "video4"
-		videoScreen4.position.set(-700, 300, -6190); //이게 맞는 위치
+		videoScreen4.position.set(8000, 450, 2400); //이게 맞는 위치
 		this.scene.add(videoScreen4);
 
 		// Creeps 영상
@@ -420,7 +423,8 @@ class Game {
 		const videoGeometry5 = new THREE.PlaneGeometry(500, 500, 2000);  // 동영상 재생 화면 생성 및 크기조정
 		const videoScreen5 = new THREE.Mesh(videoGeometry5, videoMaterial5);  // 동영상 화면 및 videoMaterial
 		videoScreen5.name = "video5"
-		videoScreen5.position.set(-700, 300, -6190); //이게 맞는 위치
+		videoScreen5.position.set(-6600, 450, -4400); //이게 맞는 위치
+		videoScreen5.rotation.y = Math.PI / 4;
 		this.scene.add(videoScreen5);
 
 		// MetaUs 영상
@@ -430,7 +434,7 @@ class Game {
 		const videoTexture6 = new THREE.VideoTexture(this.video6);
 		const videoMaterial6 = new THREE.MeshBasicMaterial({
 			map: videoTexture6,
-			side: THREE.FrontSide, // DoubleSide 양쪽 면이 다 보이게
+			side: THREE.BackSide, // DoubleSide 양쪽 면이 다 보이게
 			overdraw: true
 		});
 		videoTexture6.minFilter = THREE.LinearFilter; // 원래는 1920x960 이런식으로 영상의 사이즈에 맞게 설정해야하는데 
@@ -439,7 +443,8 @@ class Game {
 		const videoGeometry6 = new THREE.PlaneGeometry(500, 500, 2000);  // 동영상 재생 화면 생성 및 크기조정
 		const videoScreen6 = new THREE.Mesh(videoGeometry6, videoMaterial6);  // 동영상 화면 및 videoMaterial
 		videoScreen6.name = "video6"
-		videoScreen6.position.set(-700, 300, -6190); //이게 맞는 위치
+		videoScreen6.position.set(8500, 450, -1500); //이게 맞는 위치
+		videoScreen6.rotation.y = Math.PI / 3;
 		this.scene.add(videoScreen6);
 
 		// 사운드
@@ -516,7 +521,7 @@ class Game {
 		//팀부스========================================================================================		
 		//   01.KMH 부스
 		loader.load(`${ this.assetsPath }fbx/modeltest8.fbx`, function (smalloffice1) {
-			smalloffice1.position.set(9000, 450, 3700);  //(4800, 480, -9000)
+			smalloffice1.position.set(9000, 450, 3700);
 			smalloffice1.scale.set(3, 3, 3);
 			smalloffice1.rotation.y = Math.PI;
 
