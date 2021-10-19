@@ -166,14 +166,15 @@ class Game {
 				new THREE.MeshPhongMaterial({ color: 0xFF99FF })  // side
 			])
 			game.textMesh1.castShadow = true
-			game.textMesh1.position.set(0, 900, -1500) // 텍스트 위치
+			game.textMesh1.position.set(0, 5000, 9500) // 텍스트 위치
+			game.textMesh1.rotation.y = Math.PI
 			game.scene.add(game.textMesh1)
 		});
 		// 텍스트1 팀명 : BIT 
 		fontLoader.load("/assets/fonts/Gugi_Regular.json", function (font) {
 			const fgeometry = new THREE.TextGeometry('BIT 쟁이 ', {
 				font: font,
-				size: 500, // 텍스트 크기
+				size: 200, // 텍스트 크기
 				height: 20, // 돌출 두께
 				curveSegments: 12, // 곡선의 점 : 기본값 12
 				bevelEnabled: true, // 윤곽선 on
@@ -188,14 +189,14 @@ class Game {
 				new THREE.MeshPhongMaterial({ color: 0x00FFCC })	 // side
 			])
 			game.textMesh2.castShadow = true
-			game.textMesh2.position.set(-1300, 1600, -8650) // 텍스트 위치
+			game.textMesh2.position.set(8500, 1450, -6500) // 텍스트 위치
 			game.scene.add(game.textMesh2)
 		});
 		// 텍스트2 팀명 : MetaUS
 		fontLoader.load("/assets/fonts/Gugi_Regular.json", function (font) {
 			const fgeometry = new THREE.TextGeometry('META US ', {
 				font: font,
-				size: 500, // 텍스트 크기
+				size: 200, // 텍스트 크기
 				height: 20, // 돌출 두께
 				curveSegments: 12, // 곡선의 점 : 기본값 12
 				bevelEnabled: true, // 윤곽선 on
@@ -210,7 +211,7 @@ class Game {
 				new THREE.MeshPhongMaterial({ color: 0xFF3333 })	 // side
 			])
 			game.textMesh3.castShadow = true
-			game.textMesh3.position.set(5200, 1600, -7400) // 텍스트 위치
+			game.textMesh3.position.set(10000, 1450, -1500) // 텍스트 위치
 			game.textMesh3.rotation.y += 200
 			game.scene.add(game.textMesh3)
 		});
@@ -218,7 +219,7 @@ class Game {
 		fontLoader.load("/assets/fonts/Gugi_Regular.json", function (font) {
 			const fgeometry = new THREE.TextGeometry('4RUNNER ', {
 				font: font,
-				size: 500, // 텍스트 크기
+				size: 200, // 텍스트 크기
 				height: 20, // 돌출 두께
 				curveSegments: 12, // 곡선의 점 : 기본값 12
 				bevelEnabled: true, // 윤곽선 on
@@ -233,15 +234,15 @@ class Game {
 				new THREE.MeshPhongMaterial({ color: 0x5c2301 })	 // side
 			])
 			game.textMesh4.castShadow = true
-			game.textMesh4.position.set(10000, 1600, -2450) // 텍스트 위치
+			game.textMesh4.position.set(-9000, 1450, -1000) // 텍스트 위치
 			game.textMesh4.rotation.y = 30
 			game.scene.add(game.textMesh4)
 		});
 		// 텍스트4 팀명 : 힐링캠프
 		fontLoader.load("/assets/fonts/Gugi_Regular.json", function (font) {
-			const fgeometry = new THREE.TextGeometry('HEALING CAMP ', {
+			const fgeometry = new THREE.TextGeometry('힐링캠프', {
 				font: font,
-				size: 500, // 텍스트 크기
+				size: 200, // 텍스트 크기
 				height: 20, // 돌출 두께
 				curveSegments: 12, // 곡선의 점 : 기본값 12
 				bevelEnabled: true, // 윤곽선 on
@@ -256,7 +257,7 @@ class Game {
 				new THREE.MeshPhongMaterial({ color: 0x5c2301 })	 // side
 			])
 			game.textMesh5.castShadow = true
-			game.textMesh5.position.set(-8200, 1600, 0) // 텍스트 위치
+			game.textMesh5.position.set(-8000, 1450, 3700) // 텍스트 위치
 			game.textMesh5.rotation.y = 20
 			game.scene.add(game.textMesh5)
 		});
@@ -264,7 +265,7 @@ class Game {
 		fontLoader.load("/assets/fonts/Gugi_Regular.json", function (font) {
 			const fgeometry = new THREE.TextGeometry('CREEPS', {
 				font: font,
-				size: 500, // 텍스트 크기
+				size: 200, // 텍스트 크기
 				height: 20, // 돌출 두께
 				curveSegments: 12, // 곡선의 점 : 기본값 12
 				bevelEnabled: true, // 윤곽선 on
@@ -279,7 +280,7 @@ class Game {
 				new THREE.MeshPhongMaterial({ color: 0x5c2301 })	 // side
 			])
 			game.textMesh6.castShadow = true
-			game.textMesh6.position.set(-6900, 1600, -5900) // 텍스트 위치
+			game.textMesh6.position.set(-7500, 1450, -6000) // 텍스트 위치
 			game.textMesh6.rotation.y = 19
 			game.scene.add(game.textMesh6)
 		});
@@ -287,7 +288,7 @@ class Game {
 		fontLoader.load("/assets/fonts/Gugi_Regular.json", function (font) {
 			const fgeometry = new THREE.TextGeometry('KMH', {
 				font: font,
-				size: 500, // 텍스트 크기
+				size: 200, // 텍스트 크기
 				height: 20, // 돌출 두께
 				curveSegments: 12, // 곡선의 점 : 기본값 12
 				bevelEnabled: true, // 윤곽선 on
@@ -302,7 +303,7 @@ class Game {
 				new THREE.MeshPhongMaterial({ color: 0x5c2301 })	 // side
 			])
 			game.textMesh7.castShadow = true
-			game.textMesh7.position.set(11000, 1600, 2000) // 텍스트 위치
+			game.textMesh7.position.set(9000, 1450, 3700) // 텍스트 위치
 			game.textMesh7.rotation.y = 17
 			game.scene.add(game.textMesh7)
 		});
@@ -321,7 +322,7 @@ class Game {
 
 		const videoGeometry = new THREE.PlaneGeometry(10500, 5000, 2000);  // 동영상 재생 화면 생성 및 크기조정
 		const videoScreen = new THREE.Mesh(videoGeometry, videoMaterial);  // 동영상 화면 및 videoMaterial
-		videoScreen.position.set(-700, 300, 9000); //이게 맞는 위치
+		videoScreen.position.set(0, 2000, 9500); //이게 맞는 위치
 		videoScreen.rotation.y = Math.PI
 		this.scene.add(videoScreen);
 
@@ -341,7 +342,7 @@ class Game {
 		const videoGeometry1 = new THREE.PlaneGeometry(500, 500, 2000);  // 동영상 재생 화면 생성 및 크기조정
 		const videoScreen1 = new THREE.Mesh(videoGeometry1, videoMaterial1);  // 동영상 화면 및 videoMaterial
 		videoScreen1.name = "video1"
-		videoScreen1.position.set(-0, 300, 0); //이게 맞는 위치
+		videoScreen1.position.set(9000, 450, 3700); //이게 맞는 위치
 		this.scene.add(videoScreen1);
 
 		// 4runner 영상
@@ -488,51 +489,10 @@ class Game {
 		const loader = new THREE.FBXLoader();
 		const MLoader = new THREE.MaterialLoader();
 
-		//stage "#CCEEFF" 하늘색
-		const geometry = new THREE.BoxGeometry(11000, 100, 3000); // 5000,x,x
-		const material = new THREE.MeshBasicMaterial({ color: "gray", wireframe: false });
-		const stage = new THREE.Mesh(geometry, material); 			//시작할때 서있는 스테이지박스
-		stage.position.set(0, 400, 9000);
-		this.colliders.push(stage);
-		this.scene.add(stage);
-
-		// 계단
-		loader.load(`${ this.assetsPath }fbx/SM_Buildings_Stairs_1x2_01P.fbx`, function (Stair) {
-			Stair.position.set(-300, 0, 9500);
-			Stair.scale.set(5, 3, 3);
-			Stair.rotation.y = Math.PI / 1;
-
-			tLoader.load(`${ game.assetsPath }images/PolygonPrototype_Texture_04.png`, function (Stairtext) {
-				Stair.traverse(function (child) {
-					if (child.isMesh) {
-						child.material.map = Stairtext;
-						game.colliders.push(child);
-					}
-				});
-			});
-			game.scene.add(Stair);
-		});
-		//차  209KB
-		loader.load(`${ this.assetsPath }fbx/SM_Veh_Car_Sports_01.fbx`, function (Car) {
-			Car.position.set(-3900, 150, 3000);
-			Car.scale.set(3, 3, 3);
-			Car.rotation.y = Math.PI / 1.4;
-
-			tLoader.load(`${ game.assetsPath }images/PolygonPrototype_Texture_04.png`, function (Cartext) {
-				Car.traverse(function (child) {
-					if (child.isMesh) {
-						child.material.map = Cartext;
-						game.colliders.push(child);
-					}
-				});
-			});
-			game.scene.add(Car);
-		});
-
 		//팀부스========================================================================================		
 		//   01.KMH 부스
 		loader.load(`${ this.assetsPath }fbx/modeltest8.fbx`, function (smalloffice1) {
-			smalloffice1.position.set(11000, 450, 2000);  //(4800, 480, -9000)
+			smalloffice1.position.set(9000, 450, 3700);  //(4800, 480, -9000)
 			smalloffice1.scale.set(3, 3, 3);
 			smalloffice1.rotation.y = Math.PI;
 
@@ -548,7 +508,7 @@ class Game {
 		});
 		// 비트(빝쟁이)
 		loader.load(`${ this.assetsPath }fbx/modeltest8.fbx`, function (simpleoffice2) {
-			simpleoffice2.position.set(-1300, 450, -8650);
+			simpleoffice2.position.set(8500, 450, -6500);
 			simpleoffice2.scale.set(3, 3, 3);
 			simpleoffice2.rotation.y = Math.PI * (1.5388);
 
@@ -564,7 +524,7 @@ class Game {
 		});
 		// creeps(크립스)
 		loader.load(`${ this.assetsPath }fbx/modeltest8.fbx`, function (simpleoffice2) {
-			simpleoffice2.position.set(-6900, 450, -5900);
+			simpleoffice2.position.set(-7500, 450, -6000);
 			simpleoffice2.scale.set(3, 3, 3);
 			simpleoffice2.rotation.y = Math.PI * (1.8);
 
@@ -580,7 +540,7 @@ class Game {
 		});
 		// healing camp(힐링캠프)
 		loader.load(`${ this.assetsPath }fbx/modeltest8.fbx`, function (simpleoffice2) {
-			simpleoffice2.position.set(-8200, 450, 0);
+			simpleoffice2.position.set(-8000, 450, 3700);
 			simpleoffice2.scale.set(3, 3, 3);
 			simpleoffice2.rotation.y = Math.PI * (2);
 
@@ -596,7 +556,7 @@ class Game {
 		});
 		// 메타어스
 		loader.load(`${ this.assetsPath }fbx/modeltest8.fbx`, function (simpleoffice2) {
-			simpleoffice2.position.set(5200, 450, -7400);
+			simpleoffice2.position.set(10000, 450, -1500);
 			simpleoffice2.scale.set(3, 3, 3);
 			simpleoffice2.rotation.y = Math.PI * (4 / 3);
 
@@ -613,7 +573,7 @@ class Game {
 
 		//팀명 : 4Runner(포러너)
 		loader.load(`${ this.assetsPath }fbx/modeltest8.fbx`, function (floor) {
-			floor.position.set(10000, 500, -2450);
+			floor.position.set(-9000, 450, -1000);
 			floor.scale.set(3, 3, 3);
 			floor.rotation.y = Math.PI * (7 / 6);
 			tLoader.load(`${ game.assetsPath }images/PolygonOffice_Texture_01_A.png`, function (floor_tx) {
@@ -774,14 +734,29 @@ class Game {
 			game.scene.add(wework);
 		});
 		//꾸미기(데코레이션)//////////////////////////////////////////////////////////////////////
+		// ballon(풍선)-왼쪽
+		loader.load(`${this.assetsPath}fbx/ballon.fbx`, function (SimpleSky) {
+			SimpleSky.position.set(6000, 3500, 9000);
+			SimpleSky.scale.set(13, 13, 13);
+			//SimpleSky.rotation.y = Math.PI / 12;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
 
-		// ballon
-		loader.load(`${ this.assetsPath }fbx/ballon.fbx`, function (SimpleSky) {
-			SimpleSky.position.set(0, 0, -0);
-			SimpleSky.scale.set(0.39, 0.39, 0.39);
-			SimpleSky.rotation.y = Math.PI / 12;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
+			tLoader.load(`${game.assetsPath}images/PolygonOffice_Texture_01_A.png`, function (SimpleSky_tx) {
+				SimpleSky.traverse(function (child) {
+					if (child.isMesh) {
+						child.material.map = SimpleSky_tx;
+						game.colliders.push(child);
+					}
+				});
+			});
+			game.scene.add(SimpleSky);
+		});
+		// ballon(풍선) - 오른쪽
+		loader.load(`${this.assetsPath}fbx/ballon.fbx`, function (SimpleSky) {
+			SimpleSky.position.set(-6000, 3500, 9300);
+			SimpleSky.scale.set(13, 13, 13);
+			//SimpleSky.rotation.y = Math.PI / 12;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
 
-			tLoader.load(`${ game.assetsPath }images/PolygonOffice_Texture_01_A.png`, function (SimpleSky_tx) {
+			tLoader.load(`${game.assetsPath}images/PolygonOffice_Texture_01_A.png`, function (SimpleSky_tx) {
 				SimpleSky.traverse(function (child) {
 					if (child.isMesh) {
 						child.material.map = SimpleSky_tx;
