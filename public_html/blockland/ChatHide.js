@@ -9,11 +9,26 @@ function show_hide() {
 }
 
 // ppt menu
+let camShow = true;
 function show_hide_cam() {
-    if (chatShow) {
+    if (camShow) {
         $('.ppt').show();
     } else {
         $('.ppt').hide();
     }
-    chatShow = !chatShow;
+    camShow = !camShow;
+}
+
+let howtouse = true;
+function togglePopup(){
+    if (howtouse) {
+        $('.howtouse').show();
+    } else {
+        $('.howtouse').hide();
+    }
+    howtouse = !howtouse;
+}
+
+function close_popup(){
+    document.getElementById
 }

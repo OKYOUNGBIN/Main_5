@@ -21,6 +21,22 @@ body{
 #video{
     position: absolute;
 }
+
+.howtouse .contents{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    color: black;
+    width: 450px;
+    height: 320px;
+    z-index: 2;
+    text-align:center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
 /* navigation 클래스 기본설정 */
 .navigation{
     /* position의 relative는 위치값을 내가 넣고 싶은 곳으로
@@ -32,7 +48,7 @@ body{
     즉 100vh는 100%를 의미 */
     height: 100vh;
     /* background: linear-gradient( #e9e1d4, #f5ddad, #ffd0a6, #f1bcae); */
-    background: gray;
+    background: #D8BFD8;
     /* background: #f1bcae; */
     /* 마우스가 navigation클래스에서 떨어지면 가로로 0.5초 */
     transition: width 0.5s;
@@ -74,7 +90,7 @@ body{
     border-radius: 8px;
 }
 .navigation .connect-users::-webkit-scrollbar-thumb{
-    background-color: #fce9da;
+    background-color: gray;
     border-radius: 8px;
 }
 .navigation .connect-users::-webkit-scrollbar{
@@ -169,7 +185,7 @@ hover설정(마우스가 위에 올라갔을 때) */
     right: 0;
     width: 60px;
     height: 60px;
-    background: linear-gradient(#e9e1d4, #f5ddad, #f1bcae);
+    background: #D8BFD8;
     
     cursor: pointer;
 }

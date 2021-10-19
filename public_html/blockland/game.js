@@ -331,11 +331,10 @@ class Game {
 		// bit쟁이 영상
 		this.video1 = document.getElementById('video1');
 		this.video1.volume = 0.1;
-		//this.video1.play(); // 필수 자동재생
 		const videoTexture1 = new THREE.VideoTexture(this.video1);
 		const videoMaterial1 = new THREE.MeshBasicMaterial({
 			map: videoTexture1,
-			side: THREE.BackSide, // DoubleSide 양쪽 면이 다 보이게
+			side: THREE.FrontSide, // DoubleSide 양쪽 면이 다 보이게
 			overdraw: true
 		});
 		videoTexture1.minFilter = THREE.LinearFilter; // 원래는 1920x960 이런식으로 영상의 사이즈에 맞게 설정해야하는데 
@@ -345,13 +344,12 @@ class Game {
 		const videoScreen1 = new THREE.Mesh(videoGeometry1, videoMaterial1);  // 동영상 화면 및 videoMaterial
 		videoScreen1.name = "video1"
 		videoScreen1.position.set(7300, 450, -5500); //이게 맞는 위치
-		videoScreen1.rotation.y = Math.PI / 2;
+		videoScreen1.rotation.y = Math.PI * 3 / 2;
 		this.scene.add(videoScreen1);
 
 		// 4runner 영상
 		this.video2 = document.getElementById('video2');
 		this.video2.volume = 0.1;
-		//this.video2.play(); // 필수 자동재생
 		const videoTexture2 = new THREE.VideoTexture(this.video2);
 		const videoMaterial2 = new THREE.MeshBasicMaterial({
 			map: videoTexture2,
@@ -370,8 +368,7 @@ class Game {
 
 		// 힐링캠프 영상
 		this.video3 = document.getElementById('video3');
-		this.video3.volume = 0.1;
-		//this.video2.play(); // 필수 자동재생
+		this.video3.volume = 0.1;		
 		const videoTexture3 = new THREE.VideoTexture(this.video3);
 		const videoMaterial3 = new THREE.MeshBasicMaterial({
 			map: videoTexture3,
@@ -391,11 +388,10 @@ class Game {
 		// KMH 영상
 		this.video4 = document.getElementById('video4');
 		this.video4.volume = 0.1;
-		//this.video2.play(); // 필수 자동재생
 		const videoTexture4 = new THREE.VideoTexture(this.video4);
 		const videoMaterial4 = new THREE.MeshBasicMaterial({
 			map: videoTexture4,
-			side: THREE.BackSide, // DoubleSide 양쪽 면이 다 보이게
+			side: THREE.FrontSide, // DoubleSide 양쪽 면이 다 보이게
 			overdraw: true
 		});
 		videoTexture4.minFilter = THREE.LinearFilter; // 원래는 1920x960 이런식으로 영상의 사이즈에 맞게 설정해야하는데 
@@ -405,12 +401,12 @@ class Game {
 		const videoScreen4 = new THREE.Mesh(videoGeometry4, videoMaterial4);  // 동영상 화면 및 videoMaterial
 		videoScreen4.name = "video4"
 		videoScreen4.position.set(8000, 450, 2400); //이게 맞는 위치
+		videoScreen4.rotation.y = Math.PI;
 		this.scene.add(videoScreen4);
 
 		// Creeps 영상
 		this.video5 = document.getElementById('video5');
 		this.video5.volume = 0.1;
-		//this.video2.play(); // 필수 자동재생
 		const videoTexture5 = new THREE.VideoTexture(this.video5);
 		const videoMaterial5 = new THREE.MeshBasicMaterial({
 			map: videoTexture5,
@@ -430,11 +426,10 @@ class Game {
 		// MetaUs 영상
 		this.video6 = document.getElementById('video6');
 		this.video6.volume = 0.1;
-		//this.video2.play(); // 필수 자동재생
 		const videoTexture6 = new THREE.VideoTexture(this.video6);
 		const videoMaterial6 = new THREE.MeshBasicMaterial({
 			map: videoTexture6,
-			side: THREE.BackSide, // DoubleSide 양쪽 면이 다 보이게
+			side: THREE.FrontSide, // DoubleSide 양쪽 면이 다 보이게
 			overdraw: true
 		});
 		videoTexture6.minFilter = THREE.LinearFilter; // 원래는 1920x960 이런식으로 영상의 사이즈에 맞게 설정해야하는데 
@@ -444,7 +439,7 @@ class Game {
 		const videoScreen6 = new THREE.Mesh(videoGeometry6, videoMaterial6);  // 동영상 화면 및 videoMaterial
 		videoScreen6.name = "video6"
 		videoScreen6.position.set(8500, 450, -1500); //이게 맞는 위치
-		videoScreen6.rotation.y = Math.PI / 3;
+		videoScreen6.rotation.y = Math.PI* 4 / 3;
 		this.scene.add(videoScreen6);
 
 		// 사운드
@@ -505,6 +500,7 @@ class Game {
 		//NPC KMH
 		loader.load(`${this.assetsPath}fbx/Typing (1).fbx`, function (object) {
 			object.scale.setScalar(2);
+			object.position.set(0, 10000, 0)
 			mixer = new THREE.AnimationMixer(object);
 			const action = mixer.clipAction(object.animations[0]);
 			action.play();
@@ -515,7 +511,7 @@ class Game {
 						game.colliders.push(child);
 					}
 				});
-			});
+			})
 			game.scene.add(object);
 		})
 
@@ -1185,7 +1181,6 @@ class Game {
 		} else {
 			this.sound.pause();
 		}
-
 		if (this.isVideoPlaying) {
 			this.video1.play();
 		} else {
@@ -1196,19 +1191,16 @@ class Game {
 		} else {
 			this.video2.pause();
 		}
-
 		if (this.isVideoPlaying3) {
 			this.video3.play();
 		} else {
 			this.video3.pause();
 		}
-
 		if (this.isVideoPlaying4) {
 			this.video4.play();
 		} else {
 			this.video4.pause();
 		}
-
 		if (this.isVideoPlaying5) {
 			this.video5.play();
 		} else {
@@ -1220,6 +1212,7 @@ class Game {
 		} else {
 			this.video6.pause();
 		}
+		
 		this.renderer.render(this.scene, this.camera);
 		// game.textMesh1.rotation.y += 0.012;
 		game.textMesh2.rotation.y += 0.01;
