@@ -1,3 +1,5 @@
+let mixer;
+
 class Game {
 	constructor(nick) {
 		if (!Detector.webgl) Detector.addGetWebGLMessage();
@@ -488,6 +490,28 @@ class Game {
 
 		const loader = new THREE.FBXLoader();
 		const MLoader = new THREE.MaterialLoader();
+		//NPC KMH
+		loader.load(`${this.assetsPath}fbx/Typing (1).fbx`, function (object) {
+			object.scale.setScalar(2);
+			mixer = new THREE.AnimationMixer( object );
+			   const action = mixer.clipAction( object.animations[ 0 ] );
+			   action.play();
+			   // object.traverse( function ( child ) {
+			   //    if ( child.isMesh ) {
+			   //       child.castShadow = true;
+			   //       child.receiveShadow = true;
+			   //    }
+			   // } );
+			   tLoader.load(`${game.assetsPath}images/PolygonOffice_Texture_01_A.png`, function (Stairtext) {
+				  object.traverse(function (child) {
+					 if (child.isMesh) {
+						child.material.map = Stairtext;
+						game.colliders.push(child);
+					 }
+				  });
+			   });
+			   game.scene.add( object );
+		 })
 
 		//팀부스========================================================================================		
 		//   01.KMH 부스
@@ -570,7 +594,6 @@ class Game {
 			});
 			game.scene.add(simpleoffice2);
 		});
-
 		//팀명 : 4Runner(포러너)
 		loader.load(`${ this.assetsPath }fbx/modeltest8.fbx`, function (floor) {
 			floor.position.set(-9000, 450, -1000);
@@ -1112,7 +1135,7 @@ class Game {
 		const game = this;
 		const dt = this.clock.getDelta();
 		requestAnimationFrame(function () { game.animate(); });
-
+		if ( mixer ) mixer.update( dt );
 		this.updateRemotePlayers(dt);//화면 새로 고침에서 길을 잃은 후 경과된 델타 시간 내에 플레이어 초기화와 플레이어 이동을 처리해야 합니다.
 
 		if (this.player.mixer != undefined && this.mode == this.modes.ACTIVE) this.player.mixer.update(dt);
