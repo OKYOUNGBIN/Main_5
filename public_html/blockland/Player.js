@@ -7,8 +7,8 @@ class Player {
 		colour = colours[Math.floor(Math.random() * colours.length)];//선택해야할 색상은 무작위로 선택
 
 		if (options === undefined) {
-			const people = ['BeachBabe', 'BusinessMan', 'Doctor', 'FireFighter', 'Housewife', 'Policeman', 'Prostitute', 'Punk', 'RiotCop', 'Roadworker', 'Robber', 'Sheriff', 'Streetman', 'Waitress'];
-			model = people[Math.floor(Math.random() * people.length)];//선택해야할 모델을 무작위로 선택
+			const people = ['Graduate'];
+			model = people[0];//선택해야할 모델을 무작위로 선택
 		} else if (typeof options == 'object') {
 			this.local = false;
 			this.options = options;

@@ -48,7 +48,7 @@ body{
     즉 100vh는 100%를 의미 */
     height: 100vh;
     /* background: linear-gradient( #e9e1d4, #f5ddad, #ffd0a6, #f1bcae); */
-    background: #D8BFD8;
+    background: rgb(160, 206,222);
     /* background: #f1bcae; */
     /* 마우스가 navigation클래스에서 떨어지면 가로로 0.5초 */
     transition: width 0.5s;
@@ -144,7 +144,7 @@ link -> visited -> hover -> active 순서로 해야 에러X */
 /* navigation 클래스의 ul태그의 li태그의
 hover설정(마우스가 위에 올라갔을 때) */
 .navigation ul li:hover{
-    background: #ff8080;
+    background: rgb(0, 185, 206);
 }
 
 /* navigation 클래스의 ul태그의 li태그의 a태그설정 */
@@ -185,12 +185,12 @@ hover설정(마우스가 위에 올라갔을 때) */
     right: 0;
     width: 60px;
     height: 60px;
-    background: #D8BFD8;
+    background: rgb(160, 206,222);
     
     cursor: pointer;
 }
 .toggle.active{
-    background: #ff8080;
+    background: rgb(0, 185, 206);
 }
 .toggle:before{
     /* css 유니코드
@@ -213,11 +213,11 @@ hover설정(마우스가 위에 올라갔을 때) */
 
 .create-nick{
     position: absolute;
-    background-color:#777;
+    background: rgb(160, 206,222);
 }
-.create-nick h1{
+.create-nick h2{
     position: absolute;
-    left: 45%;
+    left: 40%;
     top: 40%;
 }
 .user-nick{

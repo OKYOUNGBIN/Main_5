@@ -151,9 +151,9 @@ class Game {
 		// 텍스트1 : Stage(기타)
 		const fontLoader = new THREE.FontLoader();
 		fontLoader.load("/assets/fonts/Yanolja Yache R_Regular.json", function (font) {
-			const fgeometry = new THREE.TextGeometry('수료식', {
+			const fgeometry = new THREE.TextGeometry('축 수료식 ', {
 				font: font,
-				size: 500, // 텍스트 크기
+				size: 1000, // 텍스트 크기
 				height: 20, // 돌출 두께
 				curveSegments: 12, // 곡선의 점 : 기본값 12
 				bevelEnabled: true, // 윤곽선 on
@@ -168,7 +168,7 @@ class Game {
 				new THREE.MeshPhongMaterial({ color: 0xFF99FF })  // side
 			])
 			game.textMesh1.castShadow = true
-			game.textMesh1.position.set(0, 5000, 9500) // 텍스트 위치
+			game.textMesh1.position.set(0, 5500, 9500) // 텍스트 위치
 			game.textMesh1.rotation.y = Math.PI
 			game.scene.add(game.textMesh1)
 		});
@@ -368,7 +368,7 @@ class Game {
 
 		// 힐링캠프 영상
 		this.video3 = document.getElementById('video3');
-		this.video3.volume = 0.1;		
+		this.video3.volume = 0.1;
 		const videoTexture3 = new THREE.VideoTexture(this.video3);
 		const videoMaterial3 = new THREE.MeshBasicMaterial({
 			map: videoTexture3,
@@ -439,7 +439,7 @@ class Game {
 		const videoScreen6 = new THREE.Mesh(videoGeometry6, videoMaterial6);  // 동영상 화면 및 videoMaterial
 		videoScreen6.name = "video6"
 		videoScreen6.position.set(8500, 450, -1500); //이게 맞는 위치
-		videoScreen6.rotation.y = Math.PI* 4 / 3;
+		videoScreen6.rotation.y = Math.PI * 4 / 3;
 		this.scene.add(videoScreen6);
 
 		// 사운드
@@ -457,27 +457,27 @@ class Game {
 			game.sound.setRefDistance(20);
 			game.sound.setVolume(50);
 		});
-		const coneGeometry = new THREE.ConeGeometry(100, 200, 5);
-		const coneMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff });
-		const cone = new THREE.Mesh(coneGeometry, coneMaterial);
-		cone.position.set(0, 500, 0)
-		cone.rotation.x = Math.PI;
-		cone.name = "audio"
-		this.scene.add(cone)
+		// const coneGeometry = new THREE.ConeGeometry(100, 200, 5);
+		// const coneMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff });
+		// const cone = new THREE.Mesh(coneGeometry, coneMaterial);
+		// cone.position.set(0, 500, 0)
+		// cone.rotation.x = Math.PI;
+		// cone.name = "audio"
+		// this.scene.add(cone)
 
-		// const cube = new THREE.BoxGeometry(300, 300, 300);
-		// const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff});
-		// const cubeMesh = new THREE.Mesh(cube, cubeMaterial);
-		// cubeMesh.position.set(0, 1000, 0)
-		// cubeMesh.name = "audio"
-		// this.scene.add(cubeMesh);
+		const cube = new THREE.BoxGeometry(300, 300, 300);
+		const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+		const cubeMesh = new THREE.Mesh(cube, cubeMaterial);
+		cubeMesh.position.set(0, 1000, 0)
+		cubeMesh.name = "audio"
+		this.scene.add(cubeMesh);
 
 		// 큐브에 audio추가
-		cone.add(this.sound);
+		cubeMesh.add(this.sound);
 
 		// ground
 		const tLoader = new THREE.TextureLoader();
-		const groundTexture = tLoader.load(`${this.assetsPath}images/floor/powderbone.png`);
+		const groundTexture = tLoader.load(`${this.assetsPath}images/powderbone.png`);
 		groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping; // 바닥텍스쳐
 		groundTexture.repeat.set(9, 9);
 		groundTexture.encoding = THREE.sRGBEncoding;
@@ -610,76 +610,11 @@ class Game {
 				game.scene.add(floor);
 			});
 		});
-		//엔피씨(NPC)----------------------------------------------------------------------------------------
-		// // woman01
-		// loader.load(`${ this.assetsPath } fbx / woman02.fbx`, function (woman02) {
-		// 	woman02.position.set(1000, 200, -3000);
-		// 	woman02.scale.set(1.5, 1.5, 1.5);
-		// 	woman02.rotation.y = Math.PI / 12;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
-
-		// 	tLoader.load(`${ game.assetsPath } images / PolygonOffice_Texture_01_A.png`, function (woman02_tx) {
-		// 		woman02.traverse(function (child) {
-		// 			if (child.isMesh) {
-		// 				child.material.map = woman02_tx;
-		// 				game.colliders.push(child);
-		// 			}
-		// 		});
-		// 	});
-		// 	game.scene.add(woman02);
-		// });
-		//남자매니저 202KB
-		// loader.load(`${ this.assetsPath } fbx/lpMale_casual_K.FBX`, function (lpMale_casual_K) {
-		// 	lpMale_casual_K.position.set(1400, 50, -3000);
-		// 	lpMale_casual_K.scale.set(5, 3, 5);
-		// 	//lpMale_casual_K.rotation.y = Math.PI ;
-
-		// 	tLoader.load(`${ game.assetsPath } images / world_people_colors.png`, function (lpMale_casual_K_tx) {
-		// 		lpMale_casual_K.traverse(function (child) {
-		// 			if (child.isMesh) {
-		// 				child.material.map = lpMale_casual_K_tx;
-		// 				game.colliders.push(child);
-		// 			}
-		// 		});
-		// 	});
-		// 	game.scene.add(lpMale_casual_K);
-		// });			
-		//structure(객석)====================================================================================
-		// loader.load(`${ this.assetsPath } fbx / Structure.fbx`, function (structure) {
-		// 	structure.position.set(0, 0, -400);
-		// 	structure.scale.set(1.5, 1.5, 1.5);  // 원래 스케일2였음
-		// 	structure.rotation.y = Math.PI / 18;  // 무대기준으로 structure가 정방향이 됨
-
-		// 	tLoader.load(`${ game.assetsPath } images / carpet.png`, function (structure_tx) {
-		// 		structure.traverse(function (child) {
-		// 			if (child.isMesh) {
-		// 				child.material.map = structure_tx;
-		// 				game.colliders.push(child);
-		// 			}
-		// 		});
-		// 	});
-		// 	game.scene.add(structure);
-		// });
-		// stairs
-		// loader.load(`${ this.assetsPath } fbx / Stairs.fbx`, function (stairs) {
-		// 	stairs.position.set(-100, 250, -420);
-		// 	stairs.scale.set(1.5, 1.5, 1.5);
-		// 	stairs.rotation.y = Math.PI / 12;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
-
-		// 	tLoader.load(`${ game.assetsPath } images / carpet.png`, function (stairs_tx) {
-		// 		stairs.traverse(function (child) {
-		// 			if (child.isMesh) {
-		// 				child.material.map = stairs_tx;
-		// 				game.colliders.push(child);
-		// 			}
-		// 		});
-		// 	});
-		// 	game.scene.add(stairs);
-		// });
 		///위워크 건물 ------------------------------------------------------------------------------------------
 		// wework
 		loader.load(`${this.assetsPath}fbx/wall05.fbx`, function (wework) {
-			wework.position.set(-7000, 10, -9000);
-			wework.scale.set(1.5, 1.2, 1.5);
+			wework.position.set(-4500, 10, -4800);
+			wework.scale.set(1.5, 1.7, 1.5);
 			wework.rotation.y = Math.PI;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
 
 			tLoader.load(`${game.assetsPath}images/white.png`, function (wework_tx) {
@@ -694,8 +629,8 @@ class Game {
 		});
 		// wework_desk
 		loader.load(`${this.assetsPath}fbx/wework_desk01.fbx`, function (wework) {
-			wework.position.set(-700, 130, -7700);
-			wework.scale.set(2, 2, 2);
+			wework.position.set(-700, 250, -7700);
+			wework.scale.set(4, 4, 4);
 			wework.rotation.y = Math.PI;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
 
 			tLoader.load(`${game.assetsPath}images/PolygonOffice_Texture_01_A.png`, function (wework_tx) {
@@ -711,7 +646,7 @@ class Game {
 		// wework_stair
 		loader.load(`${this.assetsPath}fbx/wework_stair03.fbx`, function (wework) {
 			wework.position.set(380, 10, -3800);
-			wework.scale.set(1.4, 1.5, 1.5);
+			wework.scale.set(1.4, 2.1, 1.5);
 			//wework.rotation.y = Math.PI ;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
 
 			tLoader.load(`${game.assetsPath}images/PolygonOffice_Texture_01_A.png`, function (wework_tx) {
@@ -743,9 +678,9 @@ class Game {
 		});
 		// KMH_desk
 		loader.load(`${this.assetsPath}fbx/KMH_desk.fbx`, function (wework) {
-			wework.position.set(380, 150, -1500);
-			wework.scale.set(2, 2, 2);
-			//wework.rotation.y = Math.PI ;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
+			wework.position.set(180, 230, 150);
+			wework.scale.set(3, 3, 3);
+			wework.rotation.y = Math.PI * (1 / 2);  // 분모가 커지면 y축 기준 시계방향으로 회전한다
 
 			tLoader.load(`${game.assetsPath}images/PolygonOffice_Texture_01_A.png`, function (wework_tx) {
 				wework.traverse(function (child) {
@@ -756,6 +691,54 @@ class Game {
 				});
 			});
 			game.scene.add(wework);
+		});
+		//NPC KMH(민혁)
+		loader.load(`${this.assetsPath}fbx/Typing (1).fbx`, function (object) {
+			object.scale.setScalar(3);
+			//object.rotation.y = Math.PI*(1/2);
+			mixer = new THREE.AnimationMixer(object);
+			const action = mixer.clipAction(object.animations[0]);
+			action.play();
+			tLoader.load(`${game.assetsPath}images/PolygonOffice_Texture_01_A.png`, function (Stairtext) {
+				object.traverse(function (child) {
+					if (child.isMesh) {
+						child.material.map = Stairtext;
+						game.colliders.push(child);
+					}
+				});
+			});
+			game.scene.add(object);
+		})
+		// NPC수연
+		loader.load(`${this.assetsPath}fbx/girl.fbx`, function (smalloffice1) {
+			smalloffice1.position.set(600, 100, -1000);
+			smalloffice1.scale.set(3, 3, 3);
+			//malloffice1.rotation.y = Math.PI*(1/2);
+			tLoader.load(`${game.assetsPath}images/color.2.1001.png`, function (smalloffice1_tx) {
+				smalloffice1.traverse(function (child) {
+					if (child.isMesh) {
+						child.material.map = smalloffice1_tx;
+						game.colliders.push(child);
+					}
+				});
+				game.scene.add(smalloffice1);
+			});
+		});
+
+		// 시바
+		loader.load(`${this.assetsPath}fbx/shiba.FBX`, function (smalloffice1) {
+			smalloffice1.position.set(1500, 1000, 800);
+			smalloffice1.scale.set(1000, 1000, 1000);
+			smalloffice1.rotation.y = Math.PI * (5 / 4);
+			tLoader.load(`${game.assetsPath}images/default_Base_Color.png`, function (smalloffice1_tx) {
+				smalloffice1.traverse(function (child) {
+					if (child.isMesh) {
+						child.material.map = smalloffice1_tx;
+						game.colliders.push(child);
+					}
+				});
+				game.scene.add(smalloffice1);
+			});
 		});
 		//꾸미기(데코레이션)//////////////////////////////////////////////////////////////////////
 		// ballon(풍선)-왼쪽
@@ -790,7 +773,6 @@ class Game {
 			});
 			game.scene.add(SimpleSky);
 		});
-
 		// skydom
 		loader.load(`${this.assetsPath}fbx/skydome.fbx`, function (SimpleSky) {
 			SimpleSky.position.set(-500, 140, -420);
@@ -798,6 +780,22 @@ class Game {
 			SimpleSky.rotation.y = Math.PI / 12;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
 
 			tLoader.load(`${game.assetsPath}images/SimpleSky.png`, function (SimpleSky_tx) {
+				SimpleSky.traverse(function (child) {
+					if (child.isMesh) {
+						child.material.map = SimpleSky_tx;
+						game.colliders.push(child);
+					}
+				});
+			});
+			game.scene.add(SimpleSky);
+		});
+		// 액자
+		loader.load(`${this.assetsPath}fbx/frame.fbx`, function (SimpleSky) {
+			SimpleSky.position.set(0, 2000, 0);
+			SimpleSky.scale.set(100, 100, 100);
+			//SimpleSky.rotation.y = Math.PI*();  
+
+			tLoader.load(`${game.assetsPath}images/lostark.jpg`, function (SimpleSky_tx) {
 				SimpleSky.traverse(function (child) {
 					if (child.isMesh) {
 						child.material.map = SimpleSky_tx;
@@ -903,16 +901,6 @@ class Game {
 	loadEnvironment(loader) {
 		const game = this;
 
-		const tloader = new THREE.CubeTextureLoader();
-		tloader.setPath(`${game.assetsPath}/images/`);
-
-		var textureCube = tloader.load([
-			'KakaoTalk_20210916_195442737.png', 'KakaoTalk_20210916_195442737.png',
-			'KakaoTalk_20210916_195442737.png', 'KakaoTalk_20210916_195442737.png',
-			'KakaoTalk_20210916_195442737.png', 'KakaoTalk_20210916_195442737.png'
-		]);
-		game.scene.background = textureCube;
-
 		game.loadNextAnim(loader);
 	}
 
@@ -960,7 +948,7 @@ class Game {
 		front.position.set(112, 150, 800);
 		front.parent = this.player.object;
 		const back = new THREE.Object3D(); //1번
-		back.position.set(0, 250, -350);  // 기본값 0, 300, -1050
+		back.position.set(0, 250, -200);  // 기본값 0, 300, -1050
 		back.parent = this.player.object;
 		const chat = new THREE.Object3D();
 		chat.position.set(0, 200, -450);
@@ -1008,7 +996,6 @@ class Game {
 					// this.screencamera.lookAt(0,5000,5000);
 					game.activeCamera = this.screencamera;
 				}
-
 			})
 		})();
 	}
@@ -1212,7 +1199,7 @@ class Game {
 		} else {
 			this.video6.pause();
 		}
-		
+
 		this.renderer.render(this.scene, this.camera);
 		// game.textMesh1.rotation.y += 0.012;
 		game.textMesh2.rotation.y += 0.01;
