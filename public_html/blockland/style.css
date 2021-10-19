@@ -230,6 +230,8 @@ hover설정(마우스가 위에 올라갔을 때) */
 
 /* Chat in Sidebar */
 .chat_main{
+    border-style: solid;
+    border-color: #f1bcae;
     position: fixed;
     display: inline-block;
     right: 0;
@@ -258,6 +260,7 @@ hover설정(마우스가 위에 올라갔을 때) */
 }
 #chat{
     border-radius: 8px;
+    font-size: 20px;
     position: relative;
     top: 5px;
 }
@@ -285,15 +288,65 @@ hover설정(마우스가 위에 올라갔을 때) */
 }
 
 #mymain_local{
+    display:  inline-block;
     position: absolute;
-    left: 20px;
-    top: 50px;
+    border: #f1bcae;
+    border-style: solid;
+    border-radius: 8px;
+    background: rgb(250, 240, 230);
+    right: 0;
+    top: 420px;
+    height: 150px;
+    width: 300px;
 }
-
-#wingleft {}
-
-#wingright {}
-
+#mymain_local h2{
+    position: absolute;
+    left: 45%;
+    color: salmon;
+    font-size: 20px;
+}
+#channelNameInput{
+    position: relative;
+    top: 30px;
+    left: 15px;
+    height: 30px;
+    width: 150px;
+    border-radius: 8px;
+    border-style: solid;
+}
+#localmystart{
+    position: relative;
+    top: 30px;
+    left: 20px;
+    height: 30px;
+    width: 100px;
+    border-radius: 8px;
+    border-style: solid;
+}
+#localmystop{
+    position: relative;
+    top: 35px;
+    left: 40px;
+    border-radius: 8px;
+    border-style: solid;
+    height: 50px;
+    width: 100px;
+    border-color:tomato;
+    color: #fff;
+    background: #ff8080;
+}
+#screenshare{
+    position: relative;
+    background-color:cadetblue;
+    border-color:darkgreen;
+    color: white;
+    top: 35px;
+    left: 60px;
+    border-radius: 8px;
+    border-style: solid;
+    height: 50px;
+    width: 100px;
+}
 #localVideo {
     position: absolute;
 }

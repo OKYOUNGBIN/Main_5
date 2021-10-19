@@ -101,7 +101,7 @@ class PlayerLocal extends Player {// 로컬플레이어에만 적용되는 소�
 
 		if (!blocked) {
 			if (this.motion.forward > 0) {
-				const speed = (this.action == 'Running') ? 800 : 160;
+				const speed = (this.action == 'Running') ? 1200 : 160;
 				this.object.translateZ(dt * speed);
 			} else {
 				this.object.translateZ(-dt * 200);

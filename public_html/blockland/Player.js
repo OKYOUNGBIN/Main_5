@@ -54,6 +54,7 @@ class Player {
 
 			player.object = new THREE.Object3D();
 			player.object.position.set(1500, 0, 0);  // 캐릭터 생성위치(200, 0, 900) 계단앞
+			player.object.scale.setScalar(1.5);
 			//위워크 내부 : -3500, 150, -20900
 			//-2650, 100, -16800 건물내부계단
 			//-2650, 20, -16800
@@ -151,7 +152,7 @@ class Player {
 				this.action = data.action;
 				found = true;
 // nickname 용 update 시작
-				this.nickname.position.set(data.x, data.y+400, data.z);
+				this.nickname.position.set(data.x, data.y+500, data.z);
 				this.nickname.lookAt(this.game.camera.position)
 // nickname 용 update 끝
 			}

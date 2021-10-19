@@ -56,6 +56,7 @@
 	<script type="module" src="libs/three.js-master/src/loaders/TextureLoader.js"></script>
 	<script type="module" src="libs/three.js-master/src/textures/Texture.js"></script>
 	<script type="module" src="libs/three.js-master/src/textures/VideoTexture.js"></script>
+	<script type="module" src="libs/three.js-master/examples/js/libs/tween.min.js"></script>
 	
 	<!-- webRTC 모듈 -->
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
@@ -64,7 +65,6 @@
 
 	<script src="libs/Detector.js"></script>
 	<script src="libs/toon3d.js"></script>
-
 	<script src="game.js"></script>
 	<script src="Player.js"></script>
 	<script src="PlayerLocal.js"></script>
@@ -72,10 +72,6 @@
 	<script src="ChatHide.js"></script>
 	<script src="Users.js"></script>
 
-	<!-- 공유가능한 동영상 로드 -->
-	<!-- <section id="iframe">
-			<iframe src="https://www.youtube.com/embed/AbxbOd_mtn8?rel=0&amp;autoplay=1&mute=1&amp;loop=1;" title="YouTube video player"?rel=0 style="display: none;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		</section> -->
 	<!-- (autoplay) = 크롬에서 2개가 같이 필수로 넣어야함 / loop 필수 -->
 	<!-- bit쟁이 영상 -->
 	<video id="video1" loop="" crossOrigin="anonymous" playsinline="" style="display: none;" controls>
@@ -183,7 +179,7 @@
 		</div>
 	</div>
 	<!-- webRTC local -->
-	<div class="ppt">
+	<div class="ppt" style="display: none;">
 		<div id="wingleft"></div>
 		<div id="mymain_local">
 			<h2>방송</h2>
@@ -192,7 +188,7 @@
 			<input id="channelNameInput" class="text-center" type="text" placeholder="channel name" autofocus>
 			<button id="localmystart" class="btn-main1">Room Create</button>
 			<button id="localmystop" class="btn-main" disabled>Stop</button>
-			<button id="screenshare" class="btn-main">screenshare</button>
+			<button id="screenshare" class="btn-main">Screen Share</button>
 		</div>
 		<div id="wingright"></div>
 
