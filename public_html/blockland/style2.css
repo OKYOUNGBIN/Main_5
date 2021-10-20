@@ -1,0 +1,222 @@
+/* Nickname  */
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+.iconplace{
+    padding: 0;
+    box-sizing: border-box;
+    position: absolute;
+    display: inline-block;
+    background: #b39ddb;
+    width: 50%;
+    height: 100vh;
+}
+.iconplace .photo{
+    position: absolute;
+    top: 80px;
+    left: 120px;
+}
+.iconplace .welcomefont{
+    position: absolute;
+    bottom: 310px;
+    left: 240px;
+    font-size: 30px;
+}
+.bitname a{
+    text-decoration: none;
+    position: absolute;
+    top: 0;
+    color: white;
+    font-size: 30px;
+}
+.iconplace ul{
+    position: absolute;
+    bottom: 100px;
+    left: 18%;
+    list-style: none;
+    text-align: center;
+}
+
+.iconplace ul li{
+    position: relative;
+    width: 180px;
+    height: 50px;
+    padding: 20px;
+    display: inline-block;
+    list-style: none;
+}
+.iconplace .menu{
+    height: 50px;
+    width: 50px;
+    left: 31%;
+    display: flex;
+    position: relative;
+    font-size: 50px;
+}
+.iconplace .howtoex{
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 17px;
+    position: relative;
+    left: 3px;
+}
+.create-nick{
+    position: absolute;
+    background: white;
+}
+.create-nick h2{
+    color: black;
+    position: absolute;
+    right: 13%;
+    top: 40%;
+}
+.user-nick{
+    position: absolute;
+    top: 50%;
+    right: 15%;
+    height: 40px;
+    width: 19%;
+}
+.save-nick{
+    position: absolute;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    right: 8%;
+    top: 50%;
+    width: 80px;
+    font-size: 24px;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+}
+.save-nick:hover{
+    background-color: #555555;
+    color: white;
+}
+
+/* Chat in Sidebar */
+.chat_main{
+    border-style: solid;
+    position: fixed;
+    display: inline-block;
+    right: 0;
+    background: rgb(160, 206,222);
+    border-radius: 8px;
+    top: 100px;
+    width: 300px;
+    height: 310px;
+}
+
+.chat_main #nav_title{
+    position: relative;   
+    left: 45%;
+    color: white;
+}
+.chat_log{
+    position: relative;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    width: 97%;
+    height: 235px;
+    border-radius: 8px;
+    /* 크기 조절 불가 */
+    resize: none;
+}
+#chat{
+    border-radius: 8px;
+    font-size: 20px;
+    position: relative;
+    top: 5px;
+    font-family: FontAwesome;
+    /* height: 30px; */
+}
+.name{
+    border-radius: 8px;
+    /* 테두리 스타일 : 직선 */
+    border-style: solid;
+    font-size: 10px;
+    position: absolute;
+    left: 5px;
+    width: 28%;
+    height: 30px;
+ }
+.message_send{
+    border-radius: 8px;
+    position: absolute;
+    border-style: solid;
+    left: 92px;
+    height: 30px;
+    width: 54%;
+}
+.chat{
+    position: absolute;
+    border-style: solid;
+    width: 11%;
+    right: 5px;
+    height: 30px;
+    border-radius: 8px;
+}
+.ppt{
+   position: absolute;
+   right: 0;
+   top: 50%;
+   height: 300px;
+   width: 300px;
+   background: rgb(160, 206,222);
+   border-radius: 8px;
+   text-align: center;
+   border-style: solid;
+   border-color: white;
+}
+#mymain_local{
+    position: relative;
+    display:  inline-block;
+}
+#channelNameInput{
+    position: absolute;
+    left: 10px;
+    top: 50px;
+    border-radius: 8px;
+    height: 30px;
+    width: 130px;
+}
+#localmystart{
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    border-radius: 8px;
+    height: 30px;
+    width: 130px;
+}
+#localmystop
+{
+    position: absolute;
+    top: 90px;
+    left: 10px;
+    border-radius: 8px;
+    height: 50px;
+    width: 130px;
+    background-color: tomato;
+    color: white;
+}
+#screenshare{
+    position: absolute;
+    top: 90px;
+    right: 10px;
+    border-radius: 8px;
+    height: 50px;
+    width: 130px;
+    background-color: darkgreen;
+    color: white;
+}
+#mymain_remote{
+    position: absolute;
+    top: 150px;
+}
+#remotemystart{
+    position: absolute;
+    border-radius: 8px;
+    top: 50px;
+    left: 90px;
+    width: 130px;
+    height: 50px;
+}

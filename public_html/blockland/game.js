@@ -315,22 +315,22 @@ class Game {
 		this.video.volume = 0.1;
 		const videoTexture = new THREE.VideoTexture(this.video);
 		const videoMaterial = new THREE.MeshBasicMaterial({
-			map: videoTexture,
-			side: THREE.DoubleSide, // DoubleSide 양쪽 면이 다 보이게
-			overdraw: true
+		   map: videoTexture,
+		   side: THREE.DoubleSide, // DoubleSide 양쪽 면이 다 보이게
+		   overdraw: true
 		});
 		videoTexture.minFilter = THREE.LinearFilter; // 원래는 1920x960 이런식으로 영상의 사이즈에 맞게 설정해야하는데 
 		videoTexture.magFilter = THREE.LinearFilter; // 이 두개를 쓰면 그런 경고 사라짐
-
+  
 		const videoGeometry = new THREE.PlaneGeometry(10500, 5000, 2000);  // 동영상 재생 화면 생성 및 크기조정
 		const videoScreen = new THREE.Mesh(videoGeometry, videoMaterial);  // 동영상 화면 및 videoMaterial
-		videoScreen.position.set(0, 2000, 9500); //이게 맞는 위치
+		videoScreen.position.set(0, 2800, 9500); //이게 맞는 위치
 		videoScreen.rotation.y = Math.PI
 		this.scene.add(videoScreen);
 
 		// bit쟁이 영상
 		this.video1 = document.getElementById('video1');
-		this.video1.volume = 0.1;
+		this.video1.volume = 1;
 		const videoTexture1 = new THREE.VideoTexture(this.video1);
 		const videoMaterial1 = new THREE.MeshBasicMaterial({
 			map: videoTexture1,
@@ -340,16 +340,16 @@ class Game {
 		videoTexture1.minFilter = THREE.LinearFilter; // 원래는 1920x960 이런식으로 영상의 사이즈에 맞게 설정해야하는데 
 		videoTexture1.magFilter = THREE.LinearFilter; // 이 두개를 쓰면 그런 경고 사라짐
 
-		const videoGeometry1 = new THREE.PlaneGeometry(500, 500, 2000);  // 동영상 재생 화면 생성 및 크기조정
+		const videoGeometry1 = new THREE.PlaneGeometry(1500, 800, 2000);  // 동영상 재생 화면 생성 및 크기조정
 		const videoScreen1 = new THREE.Mesh(videoGeometry1, videoMaterial1);  // 동영상 화면 및 videoMaterial
 		videoScreen1.name = "video1"
-		videoScreen1.position.set(7300, 450, -5500); //이게 맞는 위치
-		videoScreen1.rotation.y = Math.PI * 3 / 2;
+		videoScreen1.position.set(7320, 450, -5500); //이게 맞는 위치
+		videoScreen1.rotation.y = Math.PI * 3.08 / 2;
 		this.scene.add(videoScreen1);
 
 		// 4runner 영상
 		this.video2 = document.getElementById('video2');
-		this.video2.volume = 0.1;
+		this.video2.volume = 0.3;
 		const videoTexture2 = new THREE.VideoTexture(this.video2);
 		const videoMaterial2 = new THREE.MeshBasicMaterial({
 			map: videoTexture2,
@@ -359,16 +359,16 @@ class Game {
 		videoTexture2.minFilter = THREE.LinearFilter; // 원래는 1920x960 이런식으로 영상의 사이즈에 맞게 설정해야하는데 
 		videoTexture2.magFilter = THREE.LinearFilter; // 이 두개를 쓰면 그런 경고 사라짐
 
-		const videoGeometry2 = new THREE.PlaneGeometry(500, 500, 2000);  // 동영상 재생 화면 생성 및 크기조정
+		const videoGeometry2 = new THREE.PlaneGeometry(1300, 800, 2000);  // 동영상 재생 화면 생성 및 크기조정
 		const videoScreen2 = new THREE.Mesh(videoGeometry2, videoMaterial2);  // 동영상 화면 및 videoMaterial
 		videoScreen2.name = "video2"
-		videoScreen2.position.set(-8500, 450, -50); //이게 맞는 위치
-		videoScreen2.rotation.y = Math.PI / 4.5;
+		videoScreen2.position.set(-8550, 450, -50); //이게 맞는 위치
+		videoScreen2.rotation.y = Math.PI / 6;
 		this.scene.add(videoScreen2);
 
 		// 힐링캠프 영상
 		this.video3 = document.getElementById('video3');
-		this.video3.volume = 0.1;
+		this.video3.volume = 0.3;
 		const videoTexture3 = new THREE.VideoTexture(this.video3);
 		const videoMaterial3 = new THREE.MeshBasicMaterial({
 			map: videoTexture3,
@@ -378,16 +378,16 @@ class Game {
 		videoTexture3.minFilter = THREE.LinearFilter; // 원래는 1920x960 이런식으로 영상의 사이즈에 맞게 설정해야하는데 
 		videoTexture3.magFilter = THREE.LinearFilter; // 이 두개를 쓰면 그런 경고 사라짐
 
-		const videoGeometry3 = new THREE.PlaneGeometry(500, 500, 2000);  // 동영상 재생 화면 생성 및 크기조정
+		const videoGeometry3 = new THREE.PlaneGeometry(1300, 800, 2000);  // 동영상 재생 화면 생성 및 크기조정
 		const videoScreen3 = new THREE.Mesh(videoGeometry3, videoMaterial3);  // 동영상 화면 및 videoMaterial
 		videoScreen3.name = "video3"
-		videoScreen3.position.set(-6400, 450, 3000); //이게 맞는 위치
+		videoScreen3.position.set(-6350, 450, 3400); //이게 맞는 위치
 		videoScreen3.rotation.y = Math.PI / 2;
 		this.scene.add(videoScreen3);
 
 		// KMH 영상
 		this.video4 = document.getElementById('video4');
-		this.video4.volume = 0.1;
+		this.video4.volume = 0.3;
 		const videoTexture4 = new THREE.VideoTexture(this.video4);
 		const videoMaterial4 = new THREE.MeshBasicMaterial({
 			map: videoTexture4,
@@ -397,16 +397,16 @@ class Game {
 		videoTexture4.minFilter = THREE.LinearFilter; // 원래는 1920x960 이런식으로 영상의 사이즈에 맞게 설정해야하는데 
 		videoTexture4.magFilter = THREE.LinearFilter; // 이 두개를 쓰면 그런 경고 사라짐
 
-		const videoGeometry4 = new THREE.PlaneGeometry(500, 500, 2000);  // 동영상 재생 화면 생성 및 크기조정
+		const videoGeometry4 = new THREE.PlaneGeometry(1300, 800, 2000);  // 동영상 재생 화면 생성 및 크기조정
 		const videoScreen4 = new THREE.Mesh(videoGeometry4, videoMaterial4);  // 동영상 화면 및 videoMaterial
 		videoScreen4.name = "video4"
-		videoScreen4.position.set(8000, 450, 2400); //이게 맞는 위치
+		videoScreen4.position.set(8100, 450, 2400); //이게 맞는 위치
 		videoScreen4.rotation.y = Math.PI;
 		this.scene.add(videoScreen4);
 
 		// Creeps 영상
 		this.video5 = document.getElementById('video5');
-		this.video5.volume = 0.1;
+		this.video5.volume = 0.3;
 		const videoTexture5 = new THREE.VideoTexture(this.video5);
 		const videoMaterial5 = new THREE.MeshBasicMaterial({
 			map: videoTexture5,
@@ -416,16 +416,16 @@ class Game {
 		videoTexture5.minFilter = THREE.LinearFilter; // 원래는 1920x960 이런식으로 영상의 사이즈에 맞게 설정해야하는데 
 		videoTexture5.magFilter = THREE.LinearFilter; // 이 두개를 쓰면 그런 경고 사라짐
 
-		const videoGeometry5 = new THREE.PlaneGeometry(500, 500, 2000);  // 동영상 재생 화면 생성 및 크기조정
+		const videoGeometry5 = new THREE.PlaneGeometry(1300, 800, 2000);  // 동영상 재생 화면 생성 및 크기조정
 		const videoScreen5 = new THREE.Mesh(videoGeometry5, videoMaterial5);  // 동영상 화면 및 videoMaterial
 		videoScreen5.name = "video5"
-		videoScreen5.position.set(-6600, 450, -4400); //이게 맞는 위치
-		videoScreen5.rotation.y = Math.PI / 4;
+		videoScreen5.position.set(-6650, 450, -4400); //이게 맞는 위치
+		videoScreen5.rotation.y = Math.PI / 3.5;
 		this.scene.add(videoScreen5);
 
 		// MetaUs 영상
 		this.video6 = document.getElementById('video6');
-		this.video6.volume = 0.1;
+		this.video6.volume = 0.3;
 		const videoTexture6 = new THREE.VideoTexture(this.video6);
 		const videoMaterial6 = new THREE.MeshBasicMaterial({
 			map: videoTexture6,
@@ -435,7 +435,7 @@ class Game {
 		videoTexture6.minFilter = THREE.LinearFilter; // 원래는 1920x960 이런식으로 영상의 사이즈에 맞게 설정해야하는데 
 		videoTexture6.magFilter = THREE.LinearFilter; // 이 두개를 쓰면 그런 경고 사라짐
 
-		const videoGeometry6 = new THREE.PlaneGeometry(500, 500, 2000);  // 동영상 재생 화면 생성 및 크기조정
+		const videoGeometry6 = new THREE.PlaneGeometry(1300, 800, 2000);  // 동영상 재생 화면 생성 및 크기조정
 		const videoScreen6 = new THREE.Mesh(videoGeometry6, videoMaterial6);  // 동영상 화면 및 videoMaterial
 		videoScreen6.name = "video6"
 		videoScreen6.position.set(8500, 450, -1500); //이게 맞는 위치
@@ -465,10 +465,10 @@ class Game {
 		// cone.name = "audio"
 		// this.scene.add(cone)
 
-		const cube = new THREE.BoxGeometry(300, 300, 300);
-		const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+		const cube = new THREE.BoxGeometry(110, 500, 110);
+		const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0.5, transparent: true });
 		const cubeMesh = new THREE.Mesh(cube, cubeMaterial);
-		cubeMesh.position.set(0, 1000, 0)
+		cubeMesh.position.set(1300, 350, -3000)
 		cubeMesh.name = "audio"
 		this.scene.add(cubeMesh);
 
@@ -612,70 +612,70 @@ class Game {
 		});
 		///위워크 건물 ------------------------------------------------------------------------------------------
 		// wework
-		loader.load(`${this.assetsPath}fbx/wall05.fbx`, function (wework) {
-			wework.position.set(-4500, 10, -4800);
-			wework.scale.set(1.5, 1.7, 1.5);
-			wework.rotation.y = Math.PI;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
+		// loader.load(`${this.assetsPath}fbx/wall05.fbx`, function (wework) {
+		// 	wework.position.set(-4500, 10, -4800);
+		// 	wework.scale.set(1.5, 1.7, 1.5);
+		// 	wework.rotation.y = Math.PI;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
 
-			tLoader.load(`${game.assetsPath}images/white.png`, function (wework_tx) {
-				wework.traverse(function (child) {
-					if (child.isMesh) {
-						child.material.map = wework_tx;
-						game.colliders.push(child);
-					}
-				});
-			});
-			game.scene.add(wework);
-		});
-		// wework_desk
-		loader.load(`${this.assetsPath}fbx/wework_desk01.fbx`, function (wework) {
-			wework.position.set(-700, 250, -7700);
-			wework.scale.set(4, 4, 4);
-			wework.rotation.y = Math.PI;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
+		// 	tLoader.load(`${game.assetsPath}images/white.png`, function (wework_tx) {
+		// 		wework.traverse(function (child) {
+		// 			if (child.isMesh) {
+		// 				child.material.map = wework_tx;
+		// 				game.colliders.push(child);
+		// 			}
+		// 		});
+		// 	});
+		// 	game.scene.add(wework);
+		// });
+      // wework_desk
+      loader.load(`${this.assetsPath}fbx/wework_desk01.fbx`, function (wework) {
+		wework.position.set(2000, 250, -3500);
+		wework.scale.set(3, 3, 3);
+		wework.rotation.y = Math.PI;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
 
-			tLoader.load(`${game.assetsPath}images/PolygonOffice_Texture_01_A.png`, function (wework_tx) {
-				wework.traverse(function (child) {
-					if (child.isMesh) {
-						child.material.map = wework_tx;
-						game.colliders.push(child);
-					}
-				});
-			});
-			game.scene.add(wework);
+		tLoader.load(`${game.assetsPath}images/PolygonOffice_Texture_01_A.png`, function (wework_tx) {
+		   wework.traverse(function (child) {
+			  if (child.isMesh) {
+				 child.material.map = wework_tx;
+				 game.colliders.push(child);
+			  }
+		   });
 		});
-		// wework_stair
-		loader.load(`${this.assetsPath}fbx/wework_stair03.fbx`, function (wework) {
-			wework.position.set(380, 10, -3800);
-			wework.scale.set(1.4, 2.1, 1.5);
-			//wework.rotation.y = Math.PI ;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
+		game.scene.add(wework);
+	 });
+      // wework_stair(위워크계단)
+      loader.load(`${this.assetsPath}fbx/wework_stair03.fbx`, function (wework) {
+		wework.position.set(2850, 0, 400);
+		wework.scale.set(1.4, 2.1, 1.5);
+		//wework.rotation.y = Math.PI ;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
 
-			tLoader.load(`${game.assetsPath}images/PolygonOffice_Texture_01_A.png`, function (wework_tx) {
-				wework.traverse(function (child) {
-					if (child.isMesh) {
-						child.material.map = wework_tx;
-						game.colliders.push(child);
-					}
-				});
-			});
-			game.scene.add(wework);
+		tLoader.load(`${game.assetsPath}images/PolygonOffice_Texture_01_A.png`, function (wework_tx) {
+		   wework.traverse(function (child) {
+			  if (child.isMesh) {
+				 child.material.map = wework_tx;
+				 game.colliders.push(child);
+			  }
+		   });
 		});
+		game.scene.add(wework);
+	 });
 
 		// redcarpet(레드카펫)
-		loader.load(`${this.assetsPath}fbx/redcarpet04.fbx`, function (wework) {
-			wework.position.set(380, 10, 3200);
-			wework.scale.set(1.2, 1.5, 1.5);
-			//wework.rotation.y = Math.PI ;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
+		// loader.load(`${this.assetsPath}fbx/redcarpet04.fbx`, function (wework) {
+		// 	wework.position.set(380, 10, 3200);
+		// 	wework.scale.set(1.2, 1.5, 1.5);
+		// 	//wework.rotation.y = Math.PI ;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
 
-			tLoader.load(`${game.assetsPath}images/KakaoTalk_20211016_013823641.jpg`, function (wework_tx) {
-				wework.traverse(function (child) {
-					if (child.isMesh) {
-						child.material.map = wework_tx;
-						game.colliders.push(child);
-					}
-				});
-			});
-			game.scene.add(wework);
-		});
+		// 	tLoader.load(`${game.assetsPath}images/KakaoTalk_20211016_013823641.jpg`, function (wework_tx) {
+		// 		wework.traverse(function (child) {
+		// 			if (child.isMesh) {
+		// 				child.material.map = wework_tx;
+		// 				game.colliders.push(child);
+		// 			}
+		// 		});
+		// 	});
+		// 	game.scene.add(wework);
+		// });
 		// KMH_desk
 		loader.load(`${this.assetsPath}fbx/KMH_desk.fbx`, function (wework) {
 			wework.position.set(180, 230, 150);
@@ -711,26 +711,10 @@ class Game {
 		})
 		// NPC수연
 		loader.load(`${this.assetsPath}fbx/girl.fbx`, function (smalloffice1) {
-			smalloffice1.position.set(600, 100, -1000);
+			smalloffice1.position.set(1300, 50, -3000);
 			smalloffice1.scale.set(3, 3, 3);
-			//malloffice1.rotation.y = Math.PI*(1/2);
+			smalloffice1.rotation.y = Math.PI * (3 / 2);
 			tLoader.load(`${game.assetsPath}images/color.2.1001.png`, function (smalloffice1_tx) {
-				smalloffice1.traverse(function (child) {
-					if (child.isMesh) {
-						child.material.map = smalloffice1_tx;
-						game.colliders.push(child);
-					}
-				});
-				game.scene.add(smalloffice1);
-			});
-		});
-
-		// 시바
-		loader.load(`${this.assetsPath}fbx/shiba.FBX`, function (smalloffice1) {
-			smalloffice1.position.set(1500, 1000, 800);
-			smalloffice1.scale.set(1000, 1000, 1000);
-			smalloffice1.rotation.y = Math.PI * (5 / 4);
-			tLoader.load(`${game.assetsPath}images/default_Base_Color.png`, function (smalloffice1_tx) {
 				smalloffice1.traverse(function (child) {
 					if (child.isMesh) {
 						child.material.map = smalloffice1_tx;
@@ -757,9 +741,10 @@ class Game {
 			});
 			game.scene.add(SimpleSky);
 		});
-		// ballon(풍선) - 오른쪽
+		//꾸미기(데코레이션)//////////////////////////////////////////////////////////////////////
+		// ballon(풍선)-왼쪽
 		loader.load(`${this.assetsPath}fbx/ballon.fbx`, function (SimpleSky) {
-			SimpleSky.position.set(-6000, 3500, 9300);
+			SimpleSky.position.set(6000, 4000, 9000);
 			SimpleSky.scale.set(13, 13, 13);
 			//SimpleSky.rotation.y = Math.PI / 12;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
 
@@ -773,10 +758,59 @@ class Game {
 			});
 			game.scene.add(SimpleSky);
 		});
+		// ballon(풍선) - 오른쪽
+		loader.load(`${this.assetsPath}fbx/ballon.fbx`, function (SimpleSky) {
+			SimpleSky.position.set(-6000, 4500, 9300);
+			SimpleSky.scale.set(13, 13, 13);
+			//SimpleSky.rotation.y = Math.PI / 12;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
+
+			tLoader.load(`${game.assetsPath}images/PolygonOffice_Texture_01_A.png`, function (SimpleSky_tx) {
+				SimpleSky.traverse(function (child) {
+					if (child.isMesh) {
+						child.material.map = SimpleSky_tx;
+						game.colliders.push(child);
+					}
+				});
+			});
+			game.scene.add(SimpleSky);
+		});
+		// 스테이지()
+		loader.load(`${this.assetsPath}fbx/stage1.fbx`, function (SimpleSky) {
+			SimpleSky.position.set(0,100,10000);  //130,400,310
+			SimpleSky.scale.set(5.6,5,5);    
+			//SimpleSky.rotation.y = Math.PI*(1/2);  
+   
+			tLoader.load(`${game.assetsPath}images/white.png`, function (SimpleSky_tx) {
+			   SimpleSky.traverse(function (child) {
+				  if (child.isMesh) {
+					 child.material.map = SimpleSky_tx;
+					 game.colliders.push(child);
+				  }
+			   });
+			});
+			game.scene.add(SimpleSky);
+		 });
+		 // 계단
+		 loader.load(`${this.assetsPath}fbx/SM_Buildings_Stairs_1x2_01P.fbx`, function (Stair) {
+			Stair.position.set(-300, 80, 6850);
+			Stair.scale.set(7, 4, 3);
+			Stair.rotation.y = Math.PI / 1;
+   
+			tLoader.load(`${game.assetsPath}images/PolygonPrototype_Texture_04.png`, function (Stairtext) {
+			   Stair.traverse(function (child) {
+				  if (child.isMesh) {
+					 child.material.map = Stairtext;
+					 game.colliders.push(child);
+				  }
+			   });
+			});
+			game.scene.add(Stair);
+		 });
+
 		// skydom
 		loader.load(`${this.assetsPath}fbx/skydome.fbx`, function (SimpleSky) {
 			SimpleSky.position.set(-500, 140, -420);
-			SimpleSky.scale.set(0.39, 0.39, 0.39);
+			SimpleSky.scale.set(0.39, 0.45, 0.39);
 			SimpleSky.rotation.y = Math.PI / 12;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
 
 			tLoader.load(`${game.assetsPath}images/SimpleSky.png`, function (SimpleSky_tx) {
@@ -789,11 +823,11 @@ class Game {
 			});
 			game.scene.add(SimpleSky);
 		});
-		// 액자
-		loader.load(`${this.assetsPath}fbx/frame.fbx`, function (SimpleSky) {
-			SimpleSky.position.set(0, 2000, 0);
-			SimpleSky.scale.set(100, 100, 100);
-			//SimpleSky.rotation.y = Math.PI*();  
+		// 액자(로스트아크)
+		loader.load(`${this.assetsPath}fbx/frame1.fbx`, function (SimpleSky) {
+			SimpleSky.position.set(100, 400, 310);  //130,400,310
+			SimpleSky.scale.set(0.4, 1, 1.6);    //12, 0.9, 0.1
+			SimpleSky.rotation.y = Math.PI * (1 / 2);
 
 			tLoader.load(`${game.assetsPath}images/lostark.jpg`, function (SimpleSky_tx) {
 				SimpleSky.traverse(function (child) {
@@ -803,6 +837,55 @@ class Game {
 					}
 				});
 			});
+			game.scene.add(SimpleSky);
+		});
+		// 비디오존(videozone)
+		loader.load(`${this.assetsPath}fbx/frame1.fbx`, function (SimpleSky) {
+			SimpleSky.position.set(0, 30, 3200);  //130,400,310
+			SimpleSky.scale.set(5, 5, 5);    //12, 0.9, 0.1
+			SimpleSky.rotation.y = Math.PI * (1 / 2);
+			SimpleSky.rotation.z = Math.PI * (1 / 2);
+
+			tLoader.load(`${game.assetsPath}images/videozone.jpg`, function (SimpleSky_tx) {
+				SimpleSky.traverse(function (child) {
+					if (child.isMesh) {
+						child.material.map = SimpleSky_tx;
+						game.colliders.push(child);
+					}
+				});
+			});
+			game.scene.add(SimpleSky);
+		});
+		// 부다(부처님)
+		// loader.load(`${this.assetsPath}fbx/budda.fbx`, function (SimpleSky) {
+		// 	SimpleSky.position.set(100, 100, -18000);  //130,400,310
+		// 	SimpleSky.scale.set(10, 10, 10);    //12, 0.9, 0.1
+		// 	//SimpleSky.rotation.y = Math.PI*(1/2);  
+
+		// 	tLoader.load(`${game.assetsPath}images/buddhacolor.png`, function (SimpleSky_tx) {
+		// 		SimpleSky.traverse(function (child) {
+		// 			if (child.isMesh) {
+		// 				child.material.map = SimpleSky_tx;
+		// 				game.colliders.push(child);
+		// 			}
+		// 		});
+		// 	});
+		// 	game.scene.add(SimpleSky);
+		// });
+		// 포탈(게이트)
+		loader.load(`${this.assetsPath}fbx/temple.fbx`, function (SimpleSky) {
+			SimpleSky.position.set(100, 0, -12800);  //130,400,310
+			SimpleSky.scale.set(3, 3, 3);    //12, 0.9, 0.1
+			//SimpleSky.rotation.y = Math.PI*(1/2);  
+
+			// tLoader.load(`${game.assetsPath}images/buddhacolor.png`, function (SimpleSky_tx) {
+			//    SimpleSky.traverse(function (child) {
+			//       if (child.isMesh) {
+			//          child.material.map = SimpleSky_tx;
+			//          //game.colliders.push(child);
+			//       }
+			//    });
+			// });
 			game.scene.add(SimpleSky);
 		});
 		// model
@@ -815,6 +898,16 @@ class Game {
 		//################################################//		
 
 		this.loadEnvironment(loader);
+
+		const tloader = new THREE.CubeTextureLoader();
+		tloader.setPath(`${game.assetsPath}/images/`);
+  
+		var textureCube = tloader.load([
+		   'KakaoTalk_20210916_195442737.png', 'KakaoTalk_20210916_195442737.png',
+		   'KakaoTalk_20210916_195442737.png', 'KakaoTalk_20210916_195442737.png',
+		   'KakaoTalk_20210916_195442737.png', 'KakaoTalk_20210916_195442737.png'
+		]);
+		game.scene.background = textureCube;
 
 		this.joystick = new JoyStick({
 			onMove: this.playerControl,
@@ -944,61 +1037,61 @@ class Game {
 
 	createCameras() {
 		const offset = new THREE.Vector3(0, 80, 0);
-		const front = new THREE.Object3D();
-		front.position.set(112, 150, 800);
+		const front = new THREE.Object3D(); //3번
+		front.position.set(0, 1000, -4000);
 		front.parent = this.player.object;
 		const back = new THREE.Object3D(); //1번
-		back.position.set(0, 250, -200);  // 기본값 0, 300, -1050
+		back.position.set(0, 300, -250);  // 기본값 0, 300, -1050
 		back.parent = this.player.object;
 		const chat = new THREE.Object3D();
 		chat.position.set(0, 200, -450);
 		chat.parent = this.player.object;
 		const wide = new THREE.Object3D();  //2번
-		wide.position.set(0, 400, -1500);
+		wide.position.set(0, 300, -1350);
 		wide.parent = this.player.object;
 		const overhead = new THREE.Object3D();
 		overhead.position.set(0, 400, 0);
 		overhead.parent = this.player.object;
-		const collect = new THREE.Object3D();
-		collect.position.set(0, 100, -8000);
+		const collect = new THREE.Object3D(); //5번
+		collect.position.set(0, 100, -5000);
 		collect.parent = this.player.object;
-		const bird = new THREE.Object3D();
+		const bird = new THREE.Object3D(); //4번
 		bird.position.set(0, 2000, -8000);
 		bird.parent = this.player.object;
 		const god = new THREE.Object3D();
 		god.position.set(0, 3000, 5000);  // (0, 8000, -15000)
 		god.parent = this.player.object;
-
+  
 		this.cameras = { front, back, wide, overhead, collect, chat, bird, god };
 		this.activeCamera = this.cameras.wide; // 캐릭터 카메라위치설정
-
+  
 		(function () {
-			document.addEventListener('keydown', function (e) {
-				const keyCode = e.keyCode;
-				console.log('pushed key ' + e.key);
-
-				if (keyCode == 49) { // 1번 누를 때
-					game.activeCamera = game.cameras.back;
-					document.dispatchEvent(new KeyboardEvent('keydown', { key22: '1' }));
-
-				} else if (keyCode == 50) { // 2번
-					game.activeCamera = game.cameras.wide;
-					document.dispatchEvent(new KeyboardEvent('keydown', { key: '2' }));
-				}
-				else if (keyCode == 51) { // 3번
-					game.activeCamera = game.cameras.collect;
-					document.dispatchEvent(new KeyboardEvent('keydown', { key: '3' }));
-				} else if (keyCode == 52) { // 4번
-					game.activeCamera = game.cameras.bird;
-					document.dispatchEvent(new KeyboardEvent('keydown', { key: '4' }));
-				} else if (keyCode == 53) { // 5번
-					// this.screencamera.position.set(0,5000,0);
-					// this.screencamera.lookAt(0,5000,5000);
-					game.activeCamera = this.screencamera;
-				}
-			})
+		   document.addEventListener('keydown', function (e) {
+			  const keyCode = e.keyCode;
+			  console.log('pushed key ' + e.key);
+  
+			  if (keyCode == 49) { // 1번 누를 때
+				 game.activeCamera = game.cameras.back;
+				 document.dispatchEvent(new KeyboardEvent('keydown', { key22: '1' }));
+  
+			  } else if (keyCode == 50) { // 2번1441231234123411
+				 game.activeCamera = game.cameras.wide;
+				 document.dispatchEvent(new KeyboardEvent('keydown', { key: '2' }));
+			  }
+			  else if (keyCode == 51) { // 3번
+				 game.activeCamera = game.cameras.front;
+				 document.dispatchEvent(new KeyboardEvent('keydown', { key: '3' }));
+			  } else if (keyCode == 52) { // 4번
+				 game.activeCamera = game.cameras.bird;
+				 document.dispatchEvent(new KeyboardEvent('keydown', { key: '4' }));
+			  } else if (keyCode == 53) { // 5번
+				 game.activeCamera = game.cameras.collect;
+			  }else if (keyCode == 54) { // 6번
+				 game.activeCamera = this.screencamera;
+			  }
+		   })
 		})();
-	}
+	 }
 	showMessage(msg, fontSize = 20, onOK = null) {
 		const txt = document.getElementById('message_text');
 		txt.innerHTML = msg;

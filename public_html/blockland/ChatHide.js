@@ -28,7 +28,3 @@ function togglePopup(){
     }
     howtouse = !howtouse;
 }
-
-function close_popup(){
-    document.getElementById
-}
