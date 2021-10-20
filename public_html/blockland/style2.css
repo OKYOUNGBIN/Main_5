@@ -1,25 +1,19 @@
 /* Nickname  */
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
-.iconplace{
-    padding: 0;
-    box-sizing: border-box;
-    position: absolute;
-    display: inline-block;
-    background: #b39ddb;
-    width: 50%;
+/* #loading{
+    position: fixed;
+    width: 100vw;
     height: 100vh;
-}
-.iconplace .photo{
-    position: absolute;
-    top: 80px;
-    left: 120px;
-}
-.iconplace .welcomefont{
-    position: absolute;
-    bottom: 310px;
-    left: 240px;
-    font-size: 30px;
+    vertical-align: middle;
+    background-color: aqua;
+    z-index: -10;
+} */
+
+.hlafimg img{
+    position: fixed;
+    width: 50vw;
+    height: 100vh;
 }
 .bitname a{
     text-decoration: none;
@@ -27,36 +21,6 @@
     top: 0;
     color: white;
     font-size: 30px;
-}
-.iconplace ul{
-    position: absolute;
-    bottom: 100px;
-    left: 18%;
-    list-style: none;
-    text-align: center;
-}
-
-.iconplace ul li{
-    position: relative;
-    width: 180px;
-    height: 50px;
-    padding: 20px;
-    display: inline-block;
-    list-style: none;
-}
-.iconplace .menu{
-    height: 50px;
-    width: 50px;
-    left: 31%;
-    display: flex;
-    position: relative;
-    font-size: 50px;
-}
-.iconplace .howtoex{
-    font-family: 'Gowun Dodum', sans-serif;
-    font-size: 17px;
-    position: relative;
-    left: 3px;
 }
 .create-nick{
     position: absolute;

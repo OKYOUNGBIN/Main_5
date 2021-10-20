@@ -127,6 +127,6 @@ body {
 
 .team-item:hover .profile-contents p{
     opacity: 1;
-    max-height: 6em;
+    max-height: 10em;
     margin-top: 0.2em;
 }

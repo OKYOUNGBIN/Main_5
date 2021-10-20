@@ -25,11 +25,13 @@ class PlayerLocal extends Player {// 로컬플레이어에만 적용되는 소�
 					game.scene.remove(players[0].nickname);
 				}
 			} else {//찾지 못했다면
-				index = game.initialisingPlayers.indexOf(data.id);//초기화 플레이어에 여전히 있을수 있음
+				let index = game.initialisingPlayers.indexOf(data.id);//초기화 플레이어에 여전히 있을수 있음
 				if (index != -1) {
 					const player = game.initialisingPlayers[index];
 					player.deleted = true;//특정플레이어를 찾아 삭제된 속성을 true로 설정
 					game.initialisingPlayers.splice(index, 1);//초기화가 끝날때 값이 사용될 플레이어 초기화에서 splice해준다 //splice함수는 원하는 위치에 요소를 추가하거나 삭제
+					game.scene.remove(players[0].nickname);
+
 				}
 			}
 		});
