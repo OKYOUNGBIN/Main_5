@@ -28,3 +28,14 @@ function togglePopup(){
     }
     howtouse = !howtouse;
 }
+
+const fullSc = document.getElementsByName("mainScreen");
+function openFullscreen() {
+    if (fullSc.requestFullscreen) {
+        fullSc.requestFullscreen();
+    } else if (fullSc.msRequestFullscreen) {
+        fullSc.msRequestFullscreen();
+    } else if (fullSc.webkitRequestFullscreen) {
+        fullSc.webkitRequestFullscreen
+    }
+}

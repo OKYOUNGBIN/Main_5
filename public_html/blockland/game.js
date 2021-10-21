@@ -20,6 +20,8 @@ class Game {
 
 		this.selected;
 		this.isPlaying = false;
+		this.isPlaying1 = false;
+		this.isVideoFull = false;
 		this.isVideoPlaying = false;
 		this.isVideoPlaying2 = false;
 		this.isVideoPlaying3 = false;
@@ -32,6 +34,7 @@ class Game {
 		this.camera;
 		this.scene;
 		this.sound;
+		this.sound1;
 		this.video;
 		this.video1;
 		this.video2;
@@ -151,9 +154,9 @@ class Game {
 		// 텍스트1 : Stage(기타)
 		const fontLoader = new THREE.FontLoader();
 		fontLoader.load("/assets/fonts/Yanolja Yache R_Regular.json", function (font) {
-			const fgeometry = new THREE.TextGeometry('축 수료식 ', {
+			const fgeometry = new THREE.TextGeometry(' BITCAMP 3rd 수료식 ', {
 				font: font,
-				size: 1000, // 텍스트 크기
+				size: 600, // 텍스트 크기
 				height: 20, // 돌출 두께
 				curveSegments: 12, // 곡선의 점 : 기본값 12
 				bevelEnabled: true, // 윤곽선 on
@@ -168,7 +171,7 @@ class Game {
 				new THREE.MeshPhongMaterial({ color: 0xFF99FF })  // side
 			])
 			game.textMesh1.castShadow = true
-			game.textMesh1.position.set(0, 5500, 9500) // 텍스트 위치
+			game.textMesh1.position.set(0, 5700, 9500) // 텍스트 위치
 			game.textMesh1.rotation.y = Math.PI
 			game.scene.add(game.textMesh1)
 		});
@@ -326,35 +329,8 @@ class Game {
 		const videoScreen = new THREE.Mesh(videoGeometry, videoMaterial);  // 동영상 화면 및 videoMaterial
 		videoScreen.position.set(0, 2800, 9500); //이게 맞는 위치
 		videoScreen.rotation.y = Math.PI
+		videoScreen.name = "mainScreen"; // 테스트
 		this.scene.add(videoScreen);
-
-		const fullscreen = 0;
-
-		$(".localVideo").click(function () {
-			if (fullscreen == 0) {
-				fullscreen = 1;
-				$("video").appendTo('body');
-				$("#vidControls").appendTo('body');
-				$("video").css('position', 'absolute').css('width', '100%').css('height', '90%').css('margin', 0).css('margin-top', '5%').css('top', '0').css('left', '0').css('float', 'left').css('z-index', 600);
-				$("#vidControls").css('position', 'absolute').css('bottom', '5%').css('width', '90%').css('backgroundColor', 'rgba(150, 150, 150, 0.5)').css('float', 'none').css('left', '5%').css('z-index', 700).css('-webkit-border-radius', '10px');
-			}
-			else {
-				fullscreen = 0;
-				$("video").appendTo('#videoPlayer');
-				$("#vidControls").appendTo('#videoPlayer');
-				//change <video> css back to normal
-				//change "#vidControls" css back to normal
-			}
-		});
-
-		// const fullSc = document.getElementById("mymain_local");
-		// if( fullSc.requestFullscreen){
-		// 	fullSc.requestFullscreen();
-		// }else if(fullSc.msRequestFullscreen){
-		// 	fullSc.msRequestFullscreen();
-		// }else if(fullSc.webkitRequestFullscreen){
-		// 	fullSc.webkitRequestFullscreen
-		// }
 
 		// bit쟁이 영상
 		this.video1 = document.getElementById('video1');
@@ -476,6 +452,7 @@ class Game {
 
 		// create a local audio source
 		this.sound = new THREE.PositionalAudio(listener);
+		this.sound1 = new THREE.PositionalAudio(listener);
 
 		// load a sound and set it as the Audio object's buffer
 		const audioLoader = new THREE.AudioLoader();
@@ -485,16 +462,9 @@ class Game {
 			game.sound.setRefDistance(20);
 			game.sound.setVolume(50);
 		});
-		// const coneGeometry = new THREE.ConeGeometry(100, 200, 5);
-		// const coneMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff });
-		// const cone = new THREE.Mesh(coneGeometry, coneMaterial);
-		// cone.position.set(0, 500, 0)
-		// cone.rotation.x = Math.PI;
-		// cone.name = "audio"
-		// this.scene.add(cone)
 
 		const cube = new THREE.BoxGeometry(110, 500, 110);
-		const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0.5, transparent: true });
+		const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0, transparent: true });
 		const cubeMesh = new THREE.Mesh(cube, cubeMaterial);
 		cubeMesh.position.set(1300, 350, -3000)  // 오디오박스
 		cubeMesh.name = "audio"
@@ -502,6 +472,24 @@ class Game {
 
 		// 큐브에 audio추가
 		cubeMesh.add(this.sound);
+
+		const audioLoader1 = new THREE.AudioLoader();
+		audioLoader1.load('assets/sound/gangsa3.mp3', function (buffer) {
+			game.sound1.setBuffer(buffer);
+			game.sound1.setLoop();
+			game.sound1.setRefDistance(20);
+			game.sound1.setVolume(50);
+		});
+
+		const cube1 = new THREE.BoxGeometry(120, 400, 120);
+		const cubeMaterial1 = new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0, transparent: true });
+		const cubeMesh1 = new THREE.Mesh(cube1, cubeMaterial1);
+		cubeMesh1.position.set(100, 100, -18000)  // 오디오박스
+		cubeMesh1.name = "audio1"
+		this.scene.add(cubeMesh1);
+
+		// 큐브에 audio추가
+		cubeMesh1.add(this.sound1);
 
 		// ground
 		const tLoader = new THREE.TextureLoader();
@@ -542,22 +530,22 @@ class Game {
 			})
 			game.scene.add(object);
 		})
-		// 철장
-		loader.load(`${this.assetsPath}fbx/fance.FBX`, function (simpleoffice2) {
-			simpleoffice2.position.set(0, 320, -100);
-			simpleoffice2.scale.set(50, 50, 50);
-			//simpleoffice2.rotation.y = Math.PI * (1.5388);
-
-			tLoader.load(`${game.assetsPath}images/burnished-metal.jpg`, function (simpleoffice2_tx) {
-				simpleoffice2.traverse(function (child) {
-					if (child.isMesh) {
-						child.material.map = simpleoffice2_tx;
-						game.colliders.push(child);
-					}
-				});
+		//fance(민혁) 철장
+		loader.load(`${this.assetsPath}fbx/fance2.fbx`, function (SimpleSky) {
+			SimpleSky.position.set(0,400,90);  
+			SimpleSky.scale.set(2,3,2);    
+			//SimpleSky.rotation.y = Math.PI*(1/2);  
+   
+			tLoader.load(`${game.assetsPath}images/fance.jpg`, function (SimpleSky_tx) {
+			   SimpleSky.traverse(function (child) {
+				  if (child.isMesh) {
+					 child.material.map = SimpleSky_tx;
+					 game.colliders.push(child);
+				  }
+			   });
 			});
-			game.scene.add(simpleoffice2);
-		});
+			game.scene.add(SimpleSky);
+		 });
 
 		//팀부스========================================================================================		
 		//   01.KMH 부스
@@ -900,39 +888,54 @@ class Game {
 			});
 			game.scene.add(SimpleSky);
 		});
-		// // 부다(부처님)
-		// loader.load(`${this.assetsPath}fbx/budda.fbx`, function (SimpleSky) {
-		// 	SimpleSky.position.set(100, 100, -18000);  //130,400,310
-		// 	SimpleSky.scale.set(10, 10, 10);    //12, 0.9, 0.1
-		// 	//SimpleSky.rotation.y = Math.PI*(1/2);  
+		// 부다(부처님)
+		loader.load(`${this.assetsPath}fbx/budda.fbx`, function (SimpleSky) {
+			SimpleSky.position.set(100, 100, -18000);  //130,400,310
+			SimpleSky.scale.set(4, 4, 4);    //12, 0.9, 0.1
+			//SimpleSky.rotation.y = Math.PI*(1/2);  
 
-		// 	tLoader.load(`${game.assetsPath}images/buddhacolo.png`, function (SimpleSky_tx) {
-		// 		SimpleSky.traverse(function (child) {
-		// 			if (child.isMesh) {
-		// 				child.material.map = SimpleSky_tx;
-		// 				game.colliders.push(child);
-		// 			}
-		// 		});
+			tLoader.load(`${game.assetsPath}images/buddhacolor.png`, function (SimpleSky_tx) {
+				SimpleSky.traverse(function (child) {
+					if (child.isMesh) {
+						child.material.map = SimpleSky_tx;
+						game.colliders.push(child);
+					}
+				});
+			});
+			game.scene.add(SimpleSky);
+		});
+		// // 부처님사진(최적화용)
+		// loader.load(`${this.assetsPath}fbx/frame1.fbx`, function (SimpleSky) {
+		// 	SimpleSky.position.set(2500,900,-18000);  //130,400,310
+		// 	SimpleSky.scale.set(10,10,10);    //12, 0.9, 0.1
+		// 	SimpleSky.rotation.y = Math.PI*(1/2);  
+   
+		// 	tLoader.load(`${game.assetsPath}images/buddha.jpg`, function (SimpleSky_tx) {
+		// 	   SimpleSky.traverse(function (child) {
+		// 		  if (child.isMesh) {
+		// 			 child.material.map = SimpleSky_tx;
+		// 			 game.colliders.push(child);
+		// 		  }
+		// 	   });
+		// 	});
+		// 	game.scene.add(SimpleSky);
+		//  });
+		// 포탈사진(최적화용)
+		// loader.load(`${this.assetsPath}fbx/frame1.fbx`, function (SimpleSky) {
+		// 	SimpleSky.position.set(100,600,-13000);  //130,400,310
+		// 	SimpleSky.scale.set(10,10,10);    //12, 0.9, 0.1
+		// 	SimpleSky.rotation.y = Math.PI*(1/2);  
+
+		// 	tLoader.load(`${game.assetsPath}images/portal1.jfif`, function (SimpleSky_tx) {
+		// 	SimpleSky.traverse(function (child) {
+		// 		if (child.isMesh) {
+		// 			child.material.map = SimpleSky_tx;
+		// 			//game.colliders.push(child);
+		// 		}
+		// 	});
 		// 	});
 		// 	game.scene.add(SimpleSky);
 		// });
-		// 포탈(게이트)
-		// loader.load(`${this.assetsPath}fbx/temple.fbx`, function (SimpleSky) {
-		// 	SimpleSky.position.set(100, 0, -12800);  //130,400,310
-		// 	SimpleSky.scale.set(3, 3, 3);    //12, 0.9, 0.1
-		// 	//SimpleSky.rotation.y = Math.PI*(1/2);  
-
-		// 	// tLoader.load(`${game.assetsPath}images/buddhacolor.png`, function (SimpleSky_tx) {
-		// 	//    SimpleSky.traverse(function (child) {
-		// 	//       if (child.isMesh) {
-		// 	//          child.material.map = SimpleSky_tx;
-		// 	//          //game.colliders.push(child);
-		// 	//       }
-		// 	//    });
-		// 	// });
-		// 	game.scene.add(SimpleSky);
-		// });
-		// model
 		const game = this;
 
 		this.player = new PlayerLocal(this);//플레이어는 플레이어로컬클래스가 단순히 매개변수로 게임을 전달
@@ -976,11 +979,27 @@ class Game {
 				raycaster1.setFromCamera(mouse1, this.camera);
 				const items = raycaster1.intersectObjects(this.scene.children);
 				items.forEach((i) => {
+					if (i.object.name == "mainScreen") {
+						console.log(i.object.name);
+						this.selected = i.object;
+						console.log("확인", this.selected);
+						this.isVideoFull = !this.isVideoFull;
+					}
+				})
+				items.forEach((i) => {
 					if (i.object.name == "audio") {
 						console.log(i.object.name);
 						this.selected = i.object;
 						console.log("확인", this.selected);
 						this.isPlaying = !this.isPlaying;
+					}
+				})
+				items.forEach((i) => {
+					if (i.object.name == "audio1") {
+						console.log(i.object.name);
+						this.selected = i.object;
+						console.log("확인", this.selected);
+						this.isPlaying1 = !this.isPlaying1;
 					}
 				})
 				items.forEach((i) => {
@@ -1035,6 +1054,7 @@ class Game {
 		}
 		window.addEventListener('resize', () => game.onWindowResize(), false);
 	}
+
 	loadEnvironment(loader) {
 		const game = this;
 
@@ -1084,7 +1104,7 @@ class Game {
 		front.position.set(0, 1000, -4000);
 		front.parent = this.player.object;
 		const back = new THREE.Object3D(); //1번
-		back.position.set(0, 300, -250);  // 기본값 0, 300, -1050
+		back.position.set(0, 200, -250);  // 기본값 0, 300, -1050
 		back.parent = this.player.object;
 		const chat = new THREE.Object3D();
 		chat.position.set(0, 200, -450);
@@ -1279,7 +1299,6 @@ class Game {
 				this.player.action = 'Running';
 			}
 		}
-
 		if (this.player.motion !== undefined) this.player.move(dt);
 
 		if (this.cameras != undefined && this.cameras.active != undefined && this.player !== undefined && this.player.object !== undefined) {
@@ -1299,42 +1318,20 @@ class Game {
 		}
 		if (this.speechBubble !== undefined) this.speechBubble.show(this.camera.position);
 
-		if (this.isPlaying) {
-			this.sound.play();
-		} else {
-			this.sound.pause();
-		}
-		if (this.isVideoPlaying) {
-			this.video1.play();
-		} else {
-			this.video1.pause();
-		}
-		if (this.isVideoPlaying2) {
-			this.video2.play();
-		} else {
-			this.video2.pause();
-		}
-		if (this.isVideoPlaying3) {
-			this.video3.play();
-		} else {
-			this.video3.pause();
-		}
-		if (this.isVideoPlaying4) {
-			this.video4.play();
-		} else {
-			this.video4.pause();
-		}
-		if (this.isVideoPlaying5) {
-			this.video5.play();
-		} else {
-			this.video5.pause();
-		}
+		// if (this.isVideoFull) {
+		// 	this.video.fullSize();
+		// } else {
+		// 	this.video.smallSize();
+		// }
 
-		if (this.isVideoPlaying6) {
-			this.video6.play();
-		} else {
-			this.video6.pause();
-		}
+		if (this.isPlaying) { this.sound.play(); } else { this.sound.pause(); }
+		if (this.isPlaying1) { this.sound1.play(); } else { this.sound1.pause(); }
+		if (this.isVideoPlaying) { this.video1.play(); } else { this.video1.pause(); }
+		if (this.isVideoPlaying2) { this.video2.play(); } else { this.video2.pause(); }
+		if (this.isVideoPlaying3) { this.video3.play(); } else { this.video3.pause(); }
+		if (this.isVideoPlaying4) { this.video4.play(); } else { this.video4.pause(); }
+		if (this.isVideoPlaying5) { this.video5.play(); } else { this.video5.pause(); }
+		if (this.isVideoPlaying6) { this.video6.play(); } else { this.video6.pause(); }
 
 		this.renderer.render(this.scene, this.camera);
 		// game.textMesh1.rotation.y += 0.012;
@@ -1345,6 +1342,6 @@ class Game {
 		game.textMesh6.rotation.y += 0.012;
 		game.textMesh7.rotation.y += 0.011;
 
-		$('#loading').hide();
+		$('.loading').hide();
 	}
 }

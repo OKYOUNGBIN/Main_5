@@ -112,7 +112,7 @@ io.sockets.on('connection', function (socket) {
    })
 });
 
-http.listen(3000, function () {//포트 2002에서 수신 대기중
+http.listen(2002, function () {//포트 2002에서 수신 대기중
    console.log('listening on *:2002');
 });
 

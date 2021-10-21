@@ -62,12 +62,9 @@ $('#localmystart').click(function () {
     localsocket.emit('channelname', localChannelId);
 });
 
-
-
 $('#localmystop').click(function () {
     localremon.close();
 });
-
 
 $('#screenshare').click(function () {
     localremon.captureScreen(screenShareOptipon.width, screenShareOptipon.height, screenShareOptipon.frameRate, false)
