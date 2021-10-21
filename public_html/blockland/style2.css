@@ -125,7 +125,7 @@
 }
 #mymain_local{
     position: relative;
-    display:  inline-block;
+    /* display:  inline-block; */
 }
 #channelNameInput{
     position: absolute;
