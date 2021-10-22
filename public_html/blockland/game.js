@@ -484,7 +484,7 @@ class Game {
 		const cube1 = new THREE.BoxGeometry(120, 400, 120);
 		const cubeMaterial1 = new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0, transparent: true });
 		const cubeMesh1 = new THREE.Mesh(cube1, cubeMaterial1);
-		cubeMesh1.position.set(100, 100, -18000)  // 오디오박스
+		cubeMesh1.position.set(100, 350, -18000)  // 오디오박스
 		cubeMesh1.name = "audio1"
 		this.scene.add(cubeMesh1);
 
@@ -537,6 +537,22 @@ class Game {
 			//SimpleSky.rotation.y = Math.PI*(1/2);  
    
 			tLoader.load(`${game.assetsPath}images/fance.jpg`, function (SimpleSky_tx) {
+			   SimpleSky.traverse(function (child) {
+				  if (child.isMesh) {
+					 child.material.map = SimpleSky_tx;
+					 game.colliders.push(child);
+				  }
+			   });
+			});
+			game.scene.add(SimpleSky);
+		 });
+		 // 달(moon)
+		 loader.load(`${this.assetsPath}fbx/moon3.fbx`, function (SimpleSky) {
+			SimpleSky.position.set(0,4000,-12000);  //130,400,310
+			SimpleSky.scale.set(7,7,7);    //12, 0.9, 0.1
+			//SimpleSky.rotation.y = Math.PI*(1/2);  
+   
+			tLoader.load(`${game.assetsPath}images/moonskin.png`, function (SimpleSky_tx) {
 			   SimpleSky.traverse(function (child) {
 				  if (child.isMesh) {
 					 child.material.map = SimpleSky_tx;
