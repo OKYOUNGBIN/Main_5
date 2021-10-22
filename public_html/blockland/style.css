@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Dodum&family=Hahmlet:wght@100;200&display=swap');
 *{
     /* 페이지의 바깥여백영역 */
     margin: 0;
@@ -30,13 +35,19 @@ body{
     background: #fff;
     color: black;
     width: 450px;
-    height: 320px;
+    height: 350px;
     z-index: 2;
-    text-align:center;
+    border-radius: 8px;
     padding: 20px;
     box-sizing: border-box;
+    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'Gowun Dodum', sans-serif;
+    font-family: 'Hahmlet', serif;
 }
-
+.howtouse .contents h1{
+    text-align: center;
+    
+}
 /* navigation 클래스 기본설정 */
 .navigation{
     /* position의 relative는 위치값을 내가 넣고 싶은 곳으로
