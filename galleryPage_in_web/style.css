@@ -60,7 +60,7 @@ audio::-webkit-media-controls-panel {
     height: 200px;
     width: 200px;
     transform-style: preserve-3d;
-    animation: animate 60s linear infinite;
+    animation: animate 25s linear infinite;
 }
 @keyframes animate{
     2%{

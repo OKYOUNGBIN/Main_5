@@ -121,7 +121,6 @@ class Game {
 
 	init() {
 		this.mode = this.modes.INITIALISING;
-
 		this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 100000);
 		this.scene = new THREE.Scene();
 		this.scene.background = new THREE.Color(0x00a0f0);
@@ -315,7 +314,7 @@ class Game {
 
 		// 동영상 화면 텍스쳐 -- Main Screen
 		this.video = document.getElementById('localVideo');
-		this.video.volume = 0.1;
+		this.video.volume = 1;
 		const videoTexture = new THREE.VideoTexture(this.video);
 		const videoMaterial = new THREE.MeshBasicMaterial({
 			map: videoTexture,
@@ -353,7 +352,7 @@ class Game {
 
 		// 4runner 영상
 		this.video2 = document.getElementById('video2');
-		this.video2.volume = 0.3;
+		this.video2.volume = 1;
 		const videoTexture2 = new THREE.VideoTexture(this.video2);
 		const videoMaterial2 = new THREE.MeshBasicMaterial({
 			map: videoTexture2,
@@ -372,7 +371,7 @@ class Game {
 
 		// 힐링캠프 영상
 		this.video3 = document.getElementById('video3');
-		this.video3.volume = 0.3;
+		this.video3.volume = 1;
 		const videoTexture3 = new THREE.VideoTexture(this.video3);
 		const videoMaterial3 = new THREE.MeshBasicMaterial({
 			map: videoTexture3,
@@ -391,7 +390,7 @@ class Game {
 
 		// KMH 영상
 		this.video4 = document.getElementById('video4');
-		this.video4.volume = 0.3;
+		this.video4.volume = 1;
 		const videoTexture4 = new THREE.VideoTexture(this.video4);
 		const videoMaterial4 = new THREE.MeshBasicMaterial({
 			map: videoTexture4,
@@ -410,7 +409,7 @@ class Game {
 
 		// Creeps 영상
 		this.video5 = document.getElementById('video5');
-		this.video5.volume = 0.3;
+		this.video5.volume = 1;
 		const videoTexture5 = new THREE.VideoTexture(this.video5);
 		const videoMaterial5 = new THREE.MeshBasicMaterial({
 			map: videoTexture5,
@@ -429,7 +428,7 @@ class Game {
 
 		// MetaUs 영상
 		this.video6 = document.getElementById('video6');
-		this.video6.volume = 0.3;
+		this.video6.volume = 1;
 		const videoTexture6 = new THREE.VideoTexture(this.video6);
 		const videoMaterial6 = new THREE.MeshBasicMaterial({
 			map: videoTexture6,
@@ -462,7 +461,7 @@ class Game {
 			game.sound.setRefDistance(20);
 			game.sound.setVolume(50);
 		});
-
+		
 		const cube = new THREE.BoxGeometry(110, 500, 110);
 		const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0, transparent: true });
 		const cubeMesh = new THREE.Mesh(cube, cubeMaterial);
@@ -772,6 +771,24 @@ class Game {
 				game.scene.add(smalloffice1);
 			});
 		});
+
+		// 단체사진
+		loader.load(`${this.assetsPath}fbx/frame1.fbx`, function (picture) {
+			picture.position.set(100, 2000, -14150);  //130,400,310
+			picture.scale.set(20, 20, 20);    //12, 0.9, 0.1
+			picture.rotation.y = Math.PI * (1 / 2);
+   
+			tLoader.load(`${game.assetsPath}images/bitcamp.jpg`, function (picture_tx) {
+			   picture.traverse(function (child) {
+				  if (child.isMesh) {
+					 child.material.map = picture_tx;
+					 //game.colliders.push(child);
+				  }
+			   });
+			});
+			game.scene.add(picture);
+		});
+
 		//꾸미기(데코레이션)//////////////////////////////////////////////////////////////////////
 		// ballon(풍선)-왼쪽
 		loader.load(`${this.assetsPath}fbx/ballon.fbx`, function (SimpleSky) {
@@ -1141,7 +1158,7 @@ class Game {
 		god.position.set(0, 3000, 5000);  // (0, 8000, -15000)
 		god.parent = this.player.object;
 
-		this.cameras = { front, back, wide, overhead, collect, chat, bird, god };
+		this.cameras = { front, back, wide, overhead, collect,chat, bird, god };
 		this.activeCamera = this.cameras.wide; // 캐릭터 카메라위치설정
 
 		(function () {
@@ -1164,7 +1181,7 @@ class Game {
 					game.activeCamera = game.cameras.bird;
 					document.dispatchEvent(new KeyboardEvent('keydown', { key: '4' }));
 				} else if (keyCode == 53) { // 5번
-					game.activeCamera = game.cameras.collect;
+					game.activeCamera = game.cameras.cameraOrtho;
 				} else if (keyCode == 54) { // 6번
 					game.activeCamera = this.screencamera;
 				}
@@ -1333,12 +1350,6 @@ class Game {
 			this.sun.position.y += 10;
 		}
 		if (this.speechBubble !== undefined) this.speechBubble.show(this.camera.position);
-
-		// if (this.isVideoFull) {
-		// 	this.video.fullSize();
-		// } else {
-		// 	this.video.smallSize();
-		// }
 
 		if (this.isPlaying) { this.sound.play(); } else { this.sound.pause(); }
 		if (this.isPlaying1) { this.sound1.play(); } else { this.sound1.pause(); }

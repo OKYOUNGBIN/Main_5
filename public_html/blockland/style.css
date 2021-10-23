@@ -46,7 +46,6 @@ body{
 }
 .howtouse .contents h1{
     text-align: center;
-    
 }
 /* navigation 클래스 기본설정 */
 .navigation{
@@ -198,6 +197,11 @@ hover설정(마우스가 위에 올라갔을 때) */
     line-height: 60px;
     text-align: start;
     white-space: nowrap;
+    
+}
+.navigation ul li .btn a{
+    text-decoration: none;
+    color: white;
 }
 
 .toggle{
