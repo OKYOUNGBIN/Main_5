@@ -126,7 +126,10 @@
 #mymain_local{
     position: relative;
     height: 200px;
-    /* display:  inline-block; */
+}
+#localVideo{
+    position: absolute ;
+    top: 500px;
 }
 #channelNameInput{
     position: absolute;

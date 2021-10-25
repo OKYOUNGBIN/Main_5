@@ -236,10 +236,8 @@
 		function goFullscreen(mymain_local) {
 			// Get the element that we want to take into fullscreen mode
 			var element = document.getElementById(mymain_local);
-
 			// These function will not exist in the browsers that don't support fullscreen mode yet, 
 			// so we'll have to check to see if they're available before calling them.
-
 			if (element.mozRequestFullScreen) {
 				// This is how to go into fullscren mode in Firefox
 				// Note the "moz" prefix, which is short for Mozilla.
@@ -257,7 +255,7 @@
 		<div id="wingleft"></div>
 		<div id="mymain_local">
 			<h2>방송</h2>
-			<video controls id="localVideo" class="remote-video" autoplay ></video>
+			<video controls id="localVideo" class="remote-video" autoplay></video>
 			<p>
 				<button id="fullscreen1"onclick="goFullscreen('localVideo');">Click Fullscreen!</button>
 			</p>
@@ -284,13 +282,10 @@
 	<script src="rtc_local.js"></script>
 	<script src="rtc_remote.js"></script>
 	<script>
-
 		$('.user-nick').keyup((event) => {
 			if (event.keyCode == 13) entrance();
 		});
-
 		$('.save-nick').click(() => entrance());
-
 		const entrance = () => {
 			remoteremon.joinCast('bitmania123');
 			let UserNick = $('.user-nick').val();
@@ -301,5 +296,4 @@
 		}
 	</script>
 </body>
-
 </html>
