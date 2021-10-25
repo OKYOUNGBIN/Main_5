@@ -657,23 +657,6 @@ class Game {
 				game.scene.add(floor);
 			});
 		});
-		///위워크 건물 ------------------------------------------------------------------------------------------
-		// wework
-		// loader.load(`${this.assetsPath}fbx/wall05.fbx`, function (wework) {
-		// 	wework.position.set(-4500, 10, -4800);
-		// 	wework.scale.set(1.5, 1.7, 1.5);
-		// 	wework.rotation.y = Math.PI;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
-
-		// 	tLoader.load(`${game.assetsPath}images/white.png`, function (wework_tx) {
-		// 		wework.traverse(function (child) {
-		// 			if (child.isMesh) {
-		// 				child.material.map = wework_tx;
-		// 				game.colliders.push(child);
-		// 			}
-		// 		});
-		// 	});
-		// 	game.scene.add(wework);
-		// });
 		// wework_desk
 		loader.load(`${this.assetsPath}fbx/wework_desk01.fbx`, function (wework) {
 			wework.position.set(2000, 250, -3500);
@@ -690,22 +673,6 @@ class Game {
 			});
 			game.scene.add(wework);
 		});
-		//   // wework_stair(위워크계단)
-		//   loader.load(`${this.assetsPath}fbx/wework_stair03.fbx`, function (wework) {
-		// 	wework.position.set(2850, 0, 400);
-		// 	wework.scale.set(1.4, 2.1, 1.5);
-		// 	//wework.rotation.y = Math.PI ;  // 분모가 커지면 y축 기준 시계방향으로 회전한다
-
-		// 	tLoader.load(`${game.assetsPath}images/PolygonOffice_Texture_01_A.png`, function (wework_tx) {
-		// 	   wework.traverse(function (child) {
-		// 		  if (child.isMesh) {
-		// 			 child.material.map = wework_tx;
-		// 			 game.colliders.push(child);
-		// 		  }
-		// 	   });
-		// 	});
-		// 	game.scene.add(wework);
-		//  });
 
 		//redcarpet(레드카펫)
 		loader.load(`${this.assetsPath}fbx/redcarpet04.fbx`, function (wework) {
@@ -937,38 +904,7 @@ class Game {
 			});
 			game.scene.add(SimpleSky);
 		});
-		// // 부처님사진(최적화용)
-		// loader.load(`${this.assetsPath}fbx/frame1.fbx`, function (SimpleSky) {
-		// 	SimpleSky.position.set(2500,900,-18000);  //130,400,310
-		// 	SimpleSky.scale.set(10,10,10);    //12, 0.9, 0.1
-		// 	SimpleSky.rotation.y = Math.PI*(1/2);  
-   
-		// 	tLoader.load(`${game.assetsPath}images/buddha.jpg`, function (SimpleSky_tx) {
-		// 	   SimpleSky.traverse(function (child) {
-		// 		  if (child.isMesh) {
-		// 			 child.material.map = SimpleSky_tx;
-		// 			 game.colliders.push(child);
-		// 		  }
-		// 	   });
-		// 	});
-		// 	game.scene.add(SimpleSky);
-		//  });
-		// 포탈사진(최적화용)
-		// loader.load(`${this.assetsPath}fbx/frame1.fbx`, function (SimpleSky) {
-		// 	SimpleSky.position.set(100,600,-13000);  //130,400,310
-		// 	SimpleSky.scale.set(10,10,10);    //12, 0.9, 0.1
-		// 	SimpleSky.rotation.y = Math.PI*(1/2);  
 
-		// 	tLoader.load(`${game.assetsPath}images/portal1.jfif`, function (SimpleSky_tx) {
-		// 	SimpleSky.traverse(function (child) {
-		// 		if (child.isMesh) {
-		// 			child.material.map = SimpleSky_tx;
-		// 			//game.colliders.push(child);
-		// 		}
-		// 	});
-		// 	});
-		// 	game.scene.add(SimpleSky);
-		// });
 		const game = this;
 
 		this.player = new PlayerLocal(this);//플레이어는 플레이어로컬클래스가 단순히 매개변수로 게임을 전달

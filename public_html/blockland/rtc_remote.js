@@ -8,6 +8,8 @@ var config = {
         key: 'bd4a6ce8b860a0e968eccd1027af40cfd9a1125d7a645f57ff3a5ca5bcad0d9e'
     },
     view: {
+        width: '100',
+        height: '100',
         remote: '#localVideo'
     },
     media: {
