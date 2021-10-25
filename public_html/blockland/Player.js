@@ -80,15 +80,15 @@ class Player {
 				player.object.userData.id = player.id;
 				player.object.userData.remotePlayer = true;//멀티플레이어의 사용자 데이터를 true
 				const players = game.initialisingPlayers.splice(game.initialisingPlayers.indexOf(this), 1);//플레이어찾아서
-				
-//################################################//		
-// nickname용 객체 생성 시작
-				game.remoteData.find((data)=>{
-					if(data.id === player.id) {
+
+				//################################################//		
+				// nickname용 객체 생성 시작
+				game.remoteData.find((data) => {
+					if (data.id === player.id) {
 						const fontLoader = new THREE.FontLoader();
 						fontLoader.load("/assets/fonts/Gugi_Regular.json", function (font) {
-						/////////////////////////// 생성자로 넘겨받은 game에서 userNick를 get 함.
-							const fgeometry = new THREE.TextGeometry( data.nick, {
+							/////////////////////////// 생성자로 넘겨받은 game에서 userNick를 get 함.
+							const fgeometry = new THREE.TextGeometry(data.nick, {
 								font: font,
 								size: 50, // 텍스트 크기
 								height: 20, // 돌출 두께
@@ -105,15 +105,15 @@ class Player {
 								new THREE.MeshPhongMaterial({ color: 0x5c2301 })     // side
 							])
 							player.nickname.castShadow = true
-							player.nickname.position.set(player.object.position.x, player.object.position.y+200, player.object.position.z) // 텍스트 위치
+							player.nickname.position.set(player.object.position.x, player.object.position.y + 200, player.object.position.z) // 텍스트 위치
 							game.scene.add(player.nickname);
 						});
 
 					}
 				})
 
-// nickname용 객체 생성 끝
-//################################################//		
+				// nickname용 객체 생성 끝
+				//################################################//		
 				game.remotePlayers.push(players[0]);//원격플레이어배열에 푸쉬
 			}
 			if (game.animations.Idle !== undefined) player.action = "Idle";
@@ -151,10 +151,12 @@ class Player {
 				this.object.quaternion.setFromEuler(euler);//방향업데이트
 				this.action = data.action;
 				found = true;
-// nickname 용 update 시작
-				this.nickname.position.set(data.x, data.y+500, data.z);
-				this.nickname.lookAt(this.game.camera.position)
-// nickname 용 update 끝
+				// nickname 용 update 시작
+				if (this.nickname !== undefined) {
+					this.nickname.position.set(data.x, data.y + 500, data.z);
+					this.nickname.lookAt(this.game.camera.position)
+				}
+				// nickname 용 update 끝
 			}
 			if (!found) this.game.removePlayer(this);//특정항목 못찾을시 false로 설정된 플레이어 제거
 		}
